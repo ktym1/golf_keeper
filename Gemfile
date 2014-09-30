@@ -38,9 +38,11 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'foundation-rails'
+
 group :development do
 	gem 'pry'
-	
+	gem 'rails_layout'
 end
 
 group :development, :test do
