@@ -38,6 +38,11 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development do
+	gem 'pry'
+	
+end
+
 group :development, :test do
 	gem "rspec-rails", "~> 2.14.0"
 	gem "factory_girl_rails", "~> 4.2.1"
@@ -50,3 +55,5 @@ group :test do
 	gem "launchy", "~> 2.3.0"
 	gem "selenium-webdriver", "~> 2.39.0"
 end
+
+
