@@ -4,9 +4,9 @@ class CoursesController < ApplicationController
 		@courses = Course.all
 	end
 
-	# def new
-	# 	@course = Course.new
-	# end
+	def new
+		@course = Course.new
+	end
 
 	# def create
 	# 	@course = Course.new(course_params)
