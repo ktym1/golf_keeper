@@ -21,6 +21,15 @@ class CoursesController < ApplicationController
 		@course = Course.find(params[:id])
 	end
 
+	def edit
+		@course = Course.find(params[:id])
+	end
+
+	def delete
+		@course.destroy
+		redirect_to courses_url
+	end
+	
 	private
 	def course_params
 		params.require(:course).permit(:name)
