@@ -29,6 +29,15 @@ class CoursesController < ApplicationController
 		@course.destroy
 		redirect_to courses_url
 	end
+
+	def update
+		@course = Course.find(params[:id])
+		if @course.update_attributes(course_params)
+			redirect_to @course
+		else
+			render :edit
+		end
+	end
 	
 	private
 	def course_params
