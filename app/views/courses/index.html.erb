@@ -1,5 +1,5 @@
 <p> Courses </p>
 
 <% @courses.each do |course| %>
-<ul> <%= course[:name] %> </ul>
+<ul> <%= link_to course[:name], "/courses/#{course.id}" %> </ul>
 <% end %>
