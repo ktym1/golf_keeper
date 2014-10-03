@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :courses do
+    resources :holes
   end
   root :to => "courses#index"
 

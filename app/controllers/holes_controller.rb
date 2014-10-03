@@ -1,0 +1,3 @@
+class HolesController < ApplicationController
+
+end
