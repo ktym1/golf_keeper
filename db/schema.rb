@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930170444) do
+ActiveRecord::Schema.define(version: 20141003192150) do
 
   create_table "courses", force: true do |t|
     t.string   "name"
-    t.integer  "hole_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
