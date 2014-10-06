@@ -16,6 +16,6 @@ class HolesController < ApplicationController
 
 	private
 		def hole_params
-			params.require(:hole).permit(:course_id, :round_9, :round_18)
+			params.require(:hole).permit(:course_id, :par)
 		end
 end

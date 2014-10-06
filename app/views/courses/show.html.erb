@@ -1,18 +1,5 @@
 <p> <%= @course[:name] %></p>
 
-<%= form_for([@course, @course.holes.build]) do |f| %>
-
-<div class='field'>
-	<%= f.label "Round of 9 Holes" %>
-	<%= f.check_box :round_9 %>
-</div>
-
-<div class='field'>
-	<%= f.label "Round of 18 Holes" %>
-	<%= f.check_box :round_18 %>
-</div>
-
-<% end %>
 
 <h4> Holes </h4>
 <%= render @course.holes %>
