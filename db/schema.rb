@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006192639) do
+ActiveRecord::Schema.define(version: 20141006192826) do
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20141006192639) do
   end
 
   create_table "holes", force: true do |t|
-    t.boolean  "round_18",   default: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "course_id"
