@@ -4,5 +4,5 @@ class Round < ActiveRecord::Base
 
 	validates :course_id, presence: true, numericality: {only_integer: true}
 	validates :round_length, presence: true, numericality: {only_integer: true}
-	validates :course_id, presence: true, numericality: {only_integer: true
+	validates :course_id, presence: true, numericality: {only_integer: true}
 end
