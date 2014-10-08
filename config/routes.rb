@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'players/new'
+
+  get 'users/new'
+
   resources :courses do
     resources :holes
   end
