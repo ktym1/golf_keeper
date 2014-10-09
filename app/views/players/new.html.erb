@@ -1,2 +1,46 @@
-<h1>Players#new</h1>
-<p>Find me in app/views/players/new.html.erb</p>
+<h1> Sign Up </h1>
+
+<%= form_for @player do |f| %>
+	<% if @player.errors.any? %>
+		<div class = "error_messages">
+			<h2> Form is invalid </h2>
+		<ul>
+			<% for message in @player.errors.full_messages %>
+			<li> <%= message %> </li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
+<div class="field">
+	<div class="email">
+		<%= f.label :email %><br>
+		<%= f.text_field :email %>	
+	</div>
+</div>
+
+
+<div class="field">
+	<div class="username">
+		<%= f.label :username %><br>
+		<%= f.text_field :username %>	
+	</div>
+</div>
+
+<div class="field">
+	<div class="password">
+		<%= f.label :password %><br>
+		<%= f.password_field :password %>
+	</div>
+</div>
+
+<div class="field">
+	<div class="password_confirmation">
+		<%= f.label :password_confirmation %><br>
+		<%= f.password_field :password_confirmation %>
+	</div>
+</div>
+
+<div class="actions"><%= f.submit %></div>
+
+<% end %>
