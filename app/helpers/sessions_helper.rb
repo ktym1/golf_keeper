@@ -6,4 +6,13 @@ module SessionsHelper
 		player.update_attribute(:remember_token, Player.digest(remember_token))
 		self.current_user = player
 	end
+
+	def current_user=(player)
+		@current_user = player
+	end
+
+	def current_user
+		remember_token = Player.digest(cookies[:remember_token])
+		@current_user ||= Player.find_by(remember_token: remember_token)
+	end
 end
