@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		session[:player_id] = nil 
+		sign_out
 		redirect_to signin_path
 	end
 end
