@@ -24,7 +24,6 @@ class PlayersController < ApplicationController
   end
   
   def update
-    @player = Player.find(params[:id])
     if @player.update_attributes(player_params)
       flash[:success] = "Profile updated"
       redirect_to @player
@@ -34,12 +33,16 @@ class PlayersController < ApplicationController
   end
  
   private
+
   def player_params
   	params.require(:player).permit(:email, :username, :password, :password_confirmation)
   end
 
   def signed_in_player
-    redirect_to signin_url, notice: "Please sign in." unless signed_in?
+    
+      store_location
+      redirect_to signin_url, notice: "Please sign in." unless signed_in?
+    
   end
 
   def correct_player
