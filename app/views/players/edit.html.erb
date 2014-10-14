@@ -1,2 +1,37 @@
-<h1>Players#edit</h1>
-<p>Find me in app/views/players/edit.html.erb</p>
+<h1> Update your profile </h1>
+
+<%= form_for @player do |f| %>
+	<%= render "shared/error_messages" %>
+
+<div class="field">
+	<div class="email">
+		<%= f.label :email %><br>
+		<%= f.text_field :email %>	
+	</div>
+</div>
+
+
+<div class="field">
+	<div class="username">
+		<%= f.label :username %><br>
+		<%= f.text_field :username %>	
+	</div>
+</div>
+
+<div class="field">
+	<div class="password">
+		<%= f.label :password %><br>
+		<%= f.password_field :password %>
+	</div>
+</div>
+
+<div class="field">
+	<div class="password_confirmation">
+		<%= f.label :password_confirmation %><br>
+		<%= f.password_field :password_confirmation %>
+	</div>
+</div>
+
+	<div class="actions"><%= f.submit  "Save changes" %></div>
+
+<% end %>
