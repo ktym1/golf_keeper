@@ -16,8 +16,8 @@ module SessionsHelper
 		!current_user.nil?
 	end	
 	
-	def current_user=(player)
-		@current_user = player
+	def current_user?(player)
+		current_user == player
 	end
 
 	def current_user

@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
  before_action :signed_in_player, only: [:edit, :update]
- 
+ before_action :correct_player, only: [:edit, :update]
   def new
   	@player = Player.new
   end
@@ -21,7 +21,6 @@ class PlayersController < ApplicationController
   end
   
   def edit
-    @player = Player.find(params[:id])
   end
   
   def update
@@ -41,5 +40,10 @@ class PlayersController < ApplicationController
 
   def signed_in_player
     redirect_to signin_url, notice: "Please sign in." unless signed_in?
+  end
+
+  def correct_player
+    @player = Player.find(params[:id])
+    redirect_to(root_url) unless current_user?(@player)
   end
 end
