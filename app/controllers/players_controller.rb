@@ -31,22 +31,26 @@ class PlayersController < ApplicationController
       render "edit"
     end
   end
+
+  def destroy
+    #how to consider admin rights for deletion
+  end
  
-  private
+    private
 
-  def player_params
-  	params.require(:player).permit(:email, :username, :password, :password_confirmation)
-  end
+      def player_params
+      	params.require(:player).permit(:email, :username, :password, :password_confirmation)
+      end
 
-  def signed_in_player
-      unless signed_in?
-      store_location
-      redirect_to signin_url, notice: "Please sign in."
-      end    
-  end
+      def signed_in_player
+          unless signed_in?
+          store_location
+          redirect_to signin_url, notice: "Please sign in."
+          end    
+      end
 
-  def correct_player
-    @player = Player.find(params[:id])
-    redirect_to(root_url) unless current_user?(@player)
-  end
+      def correct_player
+        @player = Player.find(params[:id])
+        redirect_to(root_url) unless current_user?(@player)
+      end
 end
