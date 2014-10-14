@@ -1,4 +1,6 @@
 class PlayersController < ApplicationController
+ before_action :signed_in_player, only: [:edit, :update]
+ 
   def new
   	@player = Player.new
   end
@@ -35,5 +37,9 @@ class PlayersController < ApplicationController
   private
   def player_params
   	params.require(:player).permit(:email, :username, :password, :password_confirmation)
+  end
+
+  def signed_in_player
+    redirect_to signin_url, notice: "Please sign in." unless signed_in?
   end
 end
