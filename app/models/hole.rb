@@ -5,6 +5,9 @@ class Hole < ActiveRecord::Base
 	validates :course_id, presence: true, numericality: {only_integer: true}
 	validates :par, presence: true, numericality: {only_integer: true}
 	validates :hole_number, inclusion: { in: 1..18, message: "Must be from 1 to 18" } 
+	validates :hole_number, uniqueness: { scope: :course_id,
+    message: "should be unique for this course" }
+    
 	# validate :course_should_exist
 
 	# def course_should_exist
@@ -20,10 +23,5 @@ class Hole < ActiveRecord::Base
 	# 	end
 	# end
 	
-	# def hole_max
-	# 	if @hole.self > 18
-	# 		render: "courses/how"
-	# 	else
-	# 		save
-	# end
+
 end
