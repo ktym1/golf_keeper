@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016232741) do
+ActiveRecord::Schema.define(version: 20141016235333) do
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20141016232741) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.integer  "handicap_index"
   end
 
   add_index "players", ["remember_token"], name: "index_players_on_remember_token"
