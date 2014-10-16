@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141015213941) do
+ActiveRecord::Schema.define(version: 20141016232741) do
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20141015213941) do
     t.integer  "course_id"
     t.integer  "par"
     t.integer  "hole_number"
+    t.integer  "handicap_rating"
   end
 
   create_table "players", force: true do |t|
