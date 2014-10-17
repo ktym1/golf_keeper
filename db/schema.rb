@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20141016235333) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.integer  "handicap_index"
+    t.float    "handicap_index"
   end
 
   add_index "players", ["remember_token"], name: "index_players_on_remember_token"
