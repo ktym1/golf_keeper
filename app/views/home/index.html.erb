@@ -1,2 +1,13 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Introducing Golf Keeper </h1>
+
+<p> Live Scoreboard </p>
+
+<p> Live Leaderboard </p>
+
+<p> Manage Your Games </p>
+
+<p> Courses Available </p>
+
+<p> <% @courses.each do |course| %> </p>
+<ul> <%= link_to course[:name], "/courses/#{course.id}" %> </ul>
+<% end %>
