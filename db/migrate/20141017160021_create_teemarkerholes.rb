@@ -1,6 +1,6 @@
-class CreateTeeMarkerHoles < ActiveRecord::Migration
+class CreateTeemarkerholes < ActiveRecord::Migration
   def change
-    create_table :tee_marker_holes do |t|
+    create_table :teemarkerholes do |t|
       t.integer :championship
       t.integer :blue
       t.integer :white
