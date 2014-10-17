@@ -1,8 +1,11 @@
-<%= form_for @course do |f| %>
-	<%= f.label :name %>
-	<%= f.text_area :name %>
-<p>
-    <%= f.submit %> 
-</p>
+<%= form_for(course) do |f| %>
+		<%= f.label :name %>
+		<%= f.text_area :name %>
+
+		<%= f.label "Course Handicap" %>
+		<%= f.number_field :handicap_course %> 
+	<p>
+	    <%= f.submit %> 
+	</p>
 
 <% end %>
