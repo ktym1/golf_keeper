@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :home, only: [:index]
+  root :to => "home#index"
+  
   resources :courses do
     resources :holes
   end
-  root :to => "courses#index"
-
-
+  
   resources :players
   resources :sessions, only: [:new, :create, :destroy]
   match 'signup',  to: 'players#new', via: 'get'
