@@ -11,6 +11,8 @@ class Player < ActiveRecord::Base
 	has_secure_password
 	validates :password, length: { minimum: 6}
 
+	validates_numericality_of :handicap_index, only_integer: false
+
 	def Player.new_remember_token
 		SecureRandom.urlsafe_base64
 	end
