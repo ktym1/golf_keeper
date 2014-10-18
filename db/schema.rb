@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017155255) do
+ActiveRecord::Schema.define(version: 20141017232835) do
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 20141017155255) do
 
   add_index "players", ["remember_token"], name: "index_players_on_remember_token"
 
+  create_table "ratings", force: true do |t|
+    t.integer  "course_rating"
+    t.integer  "slope_rating"
+    t.integer  "course_id"
+    t.integer  "teemarkercourse_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "rounds", force: true do |t|
     t.integer  "course_id"
     t.integer  "round_length"
@@ -53,6 +62,15 @@ ActiveRecord::Schema.define(version: 20141017155255) do
     t.integer  "hole_id"
     t.integer  "score"
     t.integer  "round_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teemarkercourses", force: true do |t|
+    t.integer  "championship"
+    t.integer  "blue"
+    t.integer  "white"
+    t.integer  "red"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
