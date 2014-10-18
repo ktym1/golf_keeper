@@ -1,4 +1,4 @@
-class Teemarkerhole < ActiveRecord::Base
+class Yardage < ActiveRecord::Base
 belongs_to :hole
 
 validates :championship, presence: true, numericality: {only_integer: true}
