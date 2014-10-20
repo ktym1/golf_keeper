@@ -1,7 +1,7 @@
 class Hole < ActiveRecord::Base
 	belongs_to :course
 	has_many :scores
-	has_many :teemarkerhole
+	has_many :yardages
 
 	validates :course_id, presence: true, numericality: {only_integer: true}
 	validates :par, presence: true, numericality: {only_integer: true}
