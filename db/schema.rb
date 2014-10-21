@@ -75,12 +75,4 @@ ActiveRecord::Schema.define(version: 20141021150424) do
     t.datetime "updated_at"
   end
 
-  create_table "yardages", force: true do |t|
-    t.integer  "hole_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "tee_id"
-    t.integer  "yards"
-  end
-
 end
