@@ -6,4 +6,5 @@ class Round < ActiveRecord::Base
 	validates :course_id, presence: true, numericality: {only_integer: true}
 	validates :round_length, presence: true, numericality: {only_integer: true}
 	validates :player_id, presence: true, numericality: {only_integer: true}
+	validates :start_hole, presence: true, inclusion: { in: 1..18 }
 end
