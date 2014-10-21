@@ -15,6 +15,7 @@ class Hole < ActiveRecord::Base
     validates :handicap_rating, uniqueness: { scope: :course_id,
     message: "should be unique for this course" }
     
+    validates :gender, :inclusion => ["m", "f", "M", "F"]
 	# validate :course_should_exist
 
 	# def course_should_exist
