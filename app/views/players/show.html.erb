@@ -17,5 +17,9 @@
 <%= round.course_id %>
 
 <% end %>
-	
+
+<% @player.courses.references(:round).each do |course| %>
+<%=  course %>
+<%= course.rounds %>
+<% end %>
 
