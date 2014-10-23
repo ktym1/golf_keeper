@@ -1,5 +1,5 @@
 	
-<p> <%= @player.username %>, welcome to Score Keeper! </p> 
+
 
 
 <h4> Account Info </h4>
@@ -8,8 +8,14 @@
 	<p> Recent Activity: </p>
 
 <!-- Add in player info on their rounds of golf  -->
-		
+ <% @player.rounds.each do |round| %>
+<tr>  Round # </tr>
+	<td><%= round.id %> </td> <br>
+<tr> Start Hole </tr>
+<td> <%= round.start_hole %></td>
 
+<%= round.course_id %>
 
+<% end %>
 	
 
