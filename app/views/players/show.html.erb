@@ -1,25 +1,23 @@
-	
-
-
-
 <h4> Account Info </h4>
 	<p> Username: <%= @player.username %></p>
 	<p> Email: <%= @player.email %> </p>
+	<p> Handicap Index: <%= @player.handicap_index %> </p>
 	<p> Recent Activity: </p>
 
 <!-- Add in player info on their rounds of golf  -->
- <% @player.rounds.each do |round| %>
-<tr>  Round # </tr>
-	<td><%= round.id %> </td> <br>
-<tr> Start Hole </tr>
-<td> <%= round.start_hole %></td>
+<% @player.rounds.references(:course).each do |round| %>
+<div class="row">
+	<div class="small-12 medium-4 large-4">
+		<h4> Round </h4> 
+			<p> <%= round.id %> </p> 
+		<h4> Course </h4>
+			<p> <%= round.course[:name] %></p>
+		<h4> Round Length </h4>
+			<p> <%= round.round_length %></p>
+		<h4> Score...how to add? </h4>
+		<h4> Par </h4>		
 
-<%= round.course_id %>
 
+	</div>
+</div>
 <% end %>
-
-<% @player.courses.references(:round).each do |course| %>
-<%=  course %>
-<%= course.rounds %>
-<% end %>
-
