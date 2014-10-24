@@ -1,0 +1,16 @@
+<%= form_for(round) do |f| %>
+	<%= f.label :course %>
+	<%= f.select(:course, @course_options) %>
+
+
+	<%= f.label :round_length %>
+
+
+	<%= f.label :start_hole %>
+	<%= f.number_field :start_hole %>
+	
+	<%= f.submit %> 
+<% end %>
+
+
+

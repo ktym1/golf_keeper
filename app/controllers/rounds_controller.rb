@@ -1,5 +1,7 @@
 class RoundsController < ApplicationController
   def new
+    @round = Round.new
+    @course_options = Course.all.map{|c| [c.name, c.id]}
   end
 
   def create
