@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :holes
   end
   
+  resources :rounds
   resources :players
   resources :sessions, only: [:new, :create, :destroy]
   match 'signup',  to: 'players#new', via: 'get'
