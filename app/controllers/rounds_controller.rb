@@ -18,4 +18,10 @@ class RoundsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def round_params
+    params.require(:round).permit(:course_id, :round_length, :player_id, :start_hole, :course)
+  end
 end
