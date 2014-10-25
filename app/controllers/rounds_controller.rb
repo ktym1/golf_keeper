@@ -1,6 +1,6 @@
 class RoundsController < ApplicationController
   def new
-    # @player = Player.find(params[:id])
+    @player = Player.find(params[:id])
     @round = Round.new
     @course_options = Course.all.map{|c| [c.name, c.id]}
   end

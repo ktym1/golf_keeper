@@ -18,6 +18,7 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
+    @round = @player.rounds.build(player_params)
   end
   
   def edit
