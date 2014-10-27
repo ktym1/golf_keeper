@@ -14,11 +14,13 @@
 			<p> <%= round.course.name %></p>
 		<h4> Round Length </h4>
 			<p> <%= round.round_length %></p>
-		<h4> Score...how to add? </h4>
+		<h4>Total </h4>
+			<p> <%= round.total %> </p>]
 		<h4> Par </h4>		
+			<p> <%= round.par %> </p>
 
 	</div>
 </div>
 <% end %>
 
-<h4> <%= link_to "Start a new round", "/players/:player_id/rounds/new" %> </h4>
+<h4> <%= link_to "Start a new round", new_player_round_path(@player) %> </h4>
