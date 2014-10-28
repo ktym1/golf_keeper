@@ -11,8 +11,8 @@ class Round < ActiveRecord::Base
 
 	def total
 		round_total = 0
-		scores.each do |score|
-			round_total += score
+		scores.each do |total|
+			round_total += total.score
 		end
 		return round_total
 	end
@@ -22,6 +22,7 @@ class Round < ActiveRecord::Base
 		scores.each do |score|
 			par += score.hole.par
 		end
+		return par
 	end
 
 	def handicap_score

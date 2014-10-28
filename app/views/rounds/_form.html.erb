@@ -1,6 +1,6 @@
-<%= form_for(player, round) do |f| %>
+<%= form_for [player, round] do |f| %>
 	<%= f.label :course %>
-	<%= f.select(:course, @course_options) %>
+	<%= f.collection_select(:course_id, @courses, :id, :name) %>
 
 
 	<%= f.label :round_length %>
