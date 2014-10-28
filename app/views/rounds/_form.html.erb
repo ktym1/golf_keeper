@@ -3,12 +3,19 @@
 	<%= f.collection_select(:course_id, @courses, :id, :name) %>
 
 
-	<%= f.label :round_length %>
+	<%= f.label :round_length, 9 %>
+	<%= f.radio_button(:round_length, 9)%></br>
+
+	<%= f.label :round_length, 18 %>
+	<%= f.radio_button(:round_length, 18)%></br>
 
 
 	<%= f.label :start_hole %>
 	<%= f.number_field :start_hole %>
 	
+	<%= f.hidden_field :player_id, :value => player.id %>
+
+
 	<%= f.submit %> 
 <% end %>
 

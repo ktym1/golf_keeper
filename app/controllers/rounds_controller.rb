@@ -6,6 +6,13 @@ class RoundsController < ApplicationController
   end
 
   def create
+    @player = Player.find(params[:player_id])
+    @round = Round.new(round_params)
+    if @round.save
+      redirect_to @player
+    else
+      render :new
+    end
   end
 
   def show
