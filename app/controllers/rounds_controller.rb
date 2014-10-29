@@ -9,7 +9,7 @@ class RoundsController < ApplicationController
     @player = Player.find(params[:player_id])
     @round = Round.new(round_params)
     if @round.save
-      redirect_to @player
+      redirect_to player_round_path
     else
       render :new
     end
