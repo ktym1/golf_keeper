@@ -6,16 +6,19 @@ class RoundsController < ApplicationController
   end
 
   def create
-    @player = Player.find(params[:player_id])
+  
     @round = Round.new(round_params)
-    if @round.save
-      redirect_to player_round_path
-    else
-      render :new
-    end
+      if @round.save
+        redirect_to player_path
+      else
+        render :new
+      end
   end
 
   def show
+    @round = Round.find(params[:id])
+    @player = Player.find(params[:id])
+    @courses = Course.all
   end
 
   def edit
