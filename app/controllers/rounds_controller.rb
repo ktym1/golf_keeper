@@ -7,7 +7,7 @@ class RoundsController < ApplicationController
 
   def create
     @player = Player.find(params[:player_id])
-    @round = @player.rounds.create(round_params)
+    @round = @player.rounds.build(round_params)
       if @round.save
       redirect_to player_round_path
       else
@@ -17,6 +17,8 @@ class RoundsController < ApplicationController
 
   def show
     @round = Round.find(params[:id])
+    @player = Player.find(params[:player_id])
+    @course = Course.find(@round.course_id)
   end
 
   def edit
@@ -31,6 +33,6 @@ class RoundsController < ApplicationController
   private
 
   def round_params
-    params.require(:round).permit(:course_id, :round_length, :player_id, :start_hole, :course)
+    params.require(:round).permit(:course_id, :round_length, :player_id, :start_hole)
   end
 end
