@@ -4,6 +4,6 @@ class Course < ActiveRecord::Base
 	has_many :tees
 	has_many :players, through: :rounds
 	
-	validates :name, presence: true
+	validates :name, presence: true, uniqueness: true
 	
 end
