@@ -13,6 +13,10 @@ describe Player do
   	expect(player).to be_valid
   end
 
+  it "is invalid without a username" do
+  	expect(Player.new(username: nil)).to have(1).errors_on(:username)
+  end
+  
   it "is invalid with a duplicate name" do
   	Player.create(
   		username: "Jack Johnson",
@@ -44,7 +48,7 @@ describe Player do
   		)
   	expect(player).to have(1).errors_on(:username)
   end
-  it "is valid with an email"
+
   it "is valid with an email"
   it "is valid with an email under 30 characters"
   it "is invalid with an email that's case-sensitive "
