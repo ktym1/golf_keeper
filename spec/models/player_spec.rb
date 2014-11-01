@@ -33,7 +33,17 @@ describe Player do
   	expect(player).to have(1).errors_on(:username)
   end
 
-  it "is valid with a username under 20 characters"
+  it "is valid with a username under 20 characters" do
+  	player = Player.new(
+  		username: "123456789123456789123456789",
+  		email: "jack@gmail.com",
+  		password: "testing",
+  		password_confirmation: "testing",
+  		handicap_index: 8.5,
+  		gender: "f"
+  		)
+  	expect(player).to have(1).errors_on(:username)
+  end
   it "is valid with an email"
   it "is valid with an email"
   it "is valid with an email under 30 characters"
