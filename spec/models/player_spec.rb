@@ -49,8 +49,34 @@ describe Player do
   	expect(player).to have(1).errors_on(:username)
   end
 
-  it "is valid with an email"
-  it "is valid with an email under 30 characters"
+  it "is valid with an email" do
+  		player = Player.new(
+  		username: "Jack Johnson",
+  		email: "jackjohnson@gmail.com",
+  		password: "testtest",
+  		password_confirmation: "testtest",
+  		handicap_index: 8.0,
+  		gender: "m"
+  		)
+  	expect(player).to be_valid
+  end
+
+  it "is valid with an email under 30 characters" do
+  	player = Player.new(
+  		username: "Jack Johnson",
+  		email: "jack123456789101112131415@gmail.com",
+  		password: "testing",
+  		password_confirmation: "testing",
+  		handicap_index: 8.5,
+  		gender: "f"
+  		)
+  	expect(player).to have(1).errors_on(:email)
+  end
+
+   it "is invalid without an email" do
+  	# expect(Player.new(email: nil)).to have(1).errors_on(:email)
+  end
+
   it "is invalid with an email that's case-sensitive "
   it "is invalid with an email non-standard format"
   it "is valid with a gender of 'm'"
