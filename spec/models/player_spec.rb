@@ -93,10 +93,58 @@ describe Player do
     expect(Player.new(email: '.@.c')).to have(1).errors_on(:email)
   end
   
-  it "is valid with a gender of 'm'"
-  it "is valid with a gender of 'M'"
-  it "is valid with a gender of 'f'"
-  it "is valid with a gender of 'F'"
+  it "is valid with a gender of 'm'" do
+    player = Player.new(
+      username: "Jack Johnson",
+      email: "JACKJOHNSON@gmail.com",
+      password: "testtest",
+      password_confirmation: "testtest",
+      handicap_index: 8.0,
+      gender: "m"
+      )
+    expect(player).to be_valid
+  end
+    
+  it "is valid with a gender of 'M'" do
+       player = Player.new(
+      username: "Jack Johnson",
+      email: "JACKJOHNSON@gmail.com",
+      password: "testtest",
+      password_confirmation: "testtest",
+      handicap_index: 8.0,
+      gender: "M"
+      )
+    expect(player).to be_valid
+  end
+
+  it "is valid with a gender of 'f'" do
+       player = Player.new(
+      username: "Jack Johnson",
+      email: "JACKJOHNSON@gmail.com",
+      password: "testtest",
+      password_confirmation: "testtest",
+      handicap_index: 8.0,
+      gender: "f"
+      )
+    expect(player).to be_valid
+  end
+
+  it "is valid with a gender of 'F'" do
+       player = Player.new(
+      username: "Jack Johnson",
+      email: "JACKJOHNSON@gmail.com",
+      password: "testtest",
+      password_confirmation: "testtest",
+      handicap_index: 8.0,
+      gender: "F"
+      )
+    expect(player).to be_valid
+  end
+
+  it "is invalid with a gender that's non-standardized" do
+    expect(Player.new(gender: 'male')).to have(1).errors_on(:gender)
+  end
+  
   it "is valid with a password length >= 6 characters"
   it "is valid with a handicap_index of a float"
   
