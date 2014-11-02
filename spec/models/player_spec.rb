@@ -88,7 +88,11 @@ describe Player do
       )
     expect(player).to be_valid
   end
-  it "is invalid with an email non-standard format"
+
+  it "is invalid with an email non-standard format" do
+    expect(Player.new(email: '.@.c')).to have(1).errors_on(:email)
+  end
+  
   it "is valid with a gender of 'm'"
   it "is valid with a gender of 'M'"
   it "is valid with a gender of 'f'"
