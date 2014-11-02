@@ -161,6 +161,27 @@ describe Player do
     expect(player).to have(1).errors_on(:password_confirmation)
   end
 
-  it "is valid with a handicap_index of a float"
-  
+  it "is valid with a handicap_index of a float" do
+    player = Player.new(
+      username: "Jack Johnson",
+      email: "jackjohnson@gmail.com",
+      password: "testtest",
+      password_confirmation: "testtest",
+      handicap_index: 9.5111,
+      gender: "m"
+      )
+    expect(player).to be_valid
+  end
+   
+    it "is valid with a handicap_index of an integer" do
+    player = Player.new(
+      username: "Jack Johnson",
+      email: "jackjohnson@gmail.com",
+      password: "testtest",
+      password_confirmation: "testtest",
+      handicap_index: 8,
+      gender: "m"
+      )
+    expect(player).to be_valid
+  end 
 end
