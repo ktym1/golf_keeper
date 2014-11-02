@@ -77,7 +77,17 @@ describe Player do
   	# expect(Player.new(email: nil)).to have(1).errors_on(:email)
   end
 
-  it "is invalid with an email that's case-sensitive "
+  it "is valid with an email that's not case-sensitive " do
+      player = Player.new(
+      username: "Jack Johnson",
+      email: "JACKJOHNSON@gmail.com",
+      password: "testtest",
+      password_confirmation: "testtest",
+      handicap_index: 8.0,
+      gender: "m"
+      )
+    expect(player).to be_valid
+  end
   it "is invalid with an email non-standard format"
   it "is valid with a gender of 'm'"
   it "is valid with a gender of 'M'"
