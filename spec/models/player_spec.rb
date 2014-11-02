@@ -144,8 +144,23 @@ describe Player do
   it "is invalid with a gender that's non-standardized" do
     expect(Player.new(gender: 'male')).to have(1).errors_on(:gender)
   end
-  
-  it "is valid with a password length >= 6 characters"
+
+  it "is invalid with a password length <= 6 characters" do
+    expect(Player.new(password: "test")).to have(1).errors_on(:password)
+  end
+
+  it "is invalid with password & password confirmation being different" do
+    player = Player.create(
+      username: "Jack Johnson",
+      email: "jackjohnson@gmail.com",
+      password: "testtest",
+      password_confirmation: "test",
+      handicap_index: 7.0,
+      gender: "m"
+      )
+    expect(player).to have(1).errors_on(:password_confirmation)
+  end
+
   it "is valid with a handicap_index of a float"
   
 end
