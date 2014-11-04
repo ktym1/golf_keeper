@@ -3,6 +3,7 @@ class RoundsController < ApplicationController
     @player = Player.find(params[:player_id])
     @round = Round.new
     @courses = Course.all
+    @tees = Tee.all
   end
 
   def create
