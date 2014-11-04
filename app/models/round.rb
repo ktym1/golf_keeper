@@ -1,8 +1,9 @@
 class Round < ActiveRecord::Base
 	belongs_to :course
 	belongs_to :player
+	belongs_to :tee
 	has_many :scores
-	# accepts_nested_attributes_for :courses
+	
 	
 	validates :course_id, presence: true, numericality: {only_integer: true}
 	validates :round_length, presence: true, numericality: {only_integer: true}
