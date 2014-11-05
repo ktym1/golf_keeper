@@ -1,5 +1,5 @@
 class Round < ActiveRecord::Base
-	after_save :save_score
+	after_save :create_scores
 
 
 	belongs_to :course
@@ -39,7 +39,7 @@ class Round < ActiveRecord::Base
 	  def create_scores
 	  	# take this round's course, and create a nil score for each hole
 	  	self.course.holes.each do |hole|
-	  		Score.create(round_id: self.id, hole_id: hole.id)
+	  		Score.find_or_create_by(round_id: self.id, hole_id: hole.id)
 	  	end
 	  end
 end
