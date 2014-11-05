@@ -1,4 +1,7 @@
 class Round < ActiveRecord::Base
+	after_save :save_score
+
+
 	belongs_to :course
 	belongs_to :player
 	belongs_to :tee
@@ -32,4 +35,11 @@ class Round < ActiveRecord::Base
 		 	#do calculations here
 		 end
 	end
+
+	  def create_scores
+	  	# take this round's course, and create a nil score for each hole
+	  	self.course.holes.each do |hole|
+	  		Score.create(round_id: self.id, hole_id: hole.id)
+	  	end
+	  end
 end

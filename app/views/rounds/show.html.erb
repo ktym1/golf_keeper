@@ -16,3 +16,7 @@ Women's Handicap 1 - 18
 <%= @round[:start_hole] %>
 
 <%= @round.course[:name] %>
+
+<% @round.scores.each do |score| %>
+<%= score[:score] %>
+<% end %>
