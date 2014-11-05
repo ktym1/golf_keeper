@@ -128,16 +128,16 @@ Rating.create({slope_rating: 137, course_rating: 75.4, gender: "F", tee_id: 3})
 Rating.create({slope_rating: 125, course_rating: 70.5, gender: "F", tee_id: 4})
 
 #Rounds: Men
-Round.create({course_id: 1, round_length: 18, player_id: 1, start_hole: 1})
-Round.create({course_id: 2, round_length: 9, player_id: 1, start_hole: 10})
-Round.create({course_id: 1, round_length: 18, player_id: 2, start_hole: 4})
-Round.create({course_id: 2, round_length: 9, player_id: 2, start_hole: 14})
+Round.create({course_id: 1, round_length: 18, player_id: 1, start_hole: 1, tee_id: 2})
+Round.create({course_id: 2, round_length: 9, player_id: 1, start_hole: 10, tee_id: 6})
+Round.create({course_id: 1, round_length: 18, player_id: 2, start_hole: 4, tee_id: 3})
+Round.create({course_id: 2, round_length: 9, player_id: 2, start_hole: 14, tee_id: 5})
 
 #Rounds: Women
-Round.create({course_id: 1, round_length: 18, player_id: 3, start_hole: 10})
-Round.create({course_id: 2, round_length: 9, player_id: 3, start_hole: 1})
-Round.create({course_id: 1, round_length: 18, player_id: 4, start_hole: 1})
-Round.create({course_id: 2, round_length: 9, player_id: 4, start_hole: 18})
+Round.create({course_id: 1, round_length: 18, player_id: 3, start_hole: 10, tee_id: 4})
+Round.create({course_id: 2, round_length: 9, player_id: 3, start_hole: 1, tee_id: 8})
+Round.create({course_id: 1, round_length: 18, player_id: 4, start_hole: 1, tee_id: 4})
+Round.create({course_id: 2, round_length: 9, player_id: 4, start_hole: 18, tee_id: 4})
 
 #Scores: Men 
 Score.create({round_id: 1, hole_id: 1, score: 4})
