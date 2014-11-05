@@ -1,5 +1,5 @@
 class Round < ActiveRecord::Base
-	after_save :create_scores
+	# after_save :create_scores
 
 
 	belongs_to :course
