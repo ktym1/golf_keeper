@@ -7,23 +7,22 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-# copper_creek = Course.create({name: "Copper Creek"})
-# woodington_lake = Course.create({name: "Woodington Lake"})
+copper_creek = Course.create({name: "Copper Creek"})
+woodington_lake = Course.create({name: "Woodington Lake"})
 
 
 # Copper Creek: Men
+
+def create_holes(course, gender)
+(1..18).each do |hole|
+	Hole.create({course_id: course.id, gender:"m", hole_number: hole, par: rand(5), handicap_rating: hole})
+	end
+end
 
 Course.all.each do |course|
 	create_holes(course, "M")
 	create_holes(course, "F")
 end
-
-	def create_holes(course, gender)
-	(1..18).each do |hole|
-		Hole.create({course_id: course.id, gender:"m", hole_number: hole, par: random(5), handicap_rating: hole})
-	end
-end
-
 
 # Hole.create({course_id: 1, gender: "m", hole_number: 1, par: 5, handicap_rating: 9})
 # Hole.create({course_id: 1, gender: "m", hole_number: 2, par: 4, handicap_rating: 1})
