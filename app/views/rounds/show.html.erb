@@ -26,11 +26,11 @@ Women's Handicap 1 - 18
       <td>Score</td>
       <td><% @round.scores.each do |score| %>
             <td>
-              <% if score == nil %>
-                    <p> Add / Edit </p>
-              <% else %>
+              <%# if score == nil %>
+                    <p> <%= link_to "Add Score", new_player_round_score_path(@player, @round) %></p>
+              <%# else %>
                     <%= score[:score] %> 
-              <% end %>
+              <%# end %>
             </td>
           <% end %>
       
