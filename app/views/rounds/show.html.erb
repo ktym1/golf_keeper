@@ -1,4 +1,4 @@
-<p>Welcome to your new round </p>
+<p>Welcome to your new game </p>
 
 <!-- Show the scorecard
 
@@ -10,13 +10,56 @@ Men's Handicap 1 - 18
 Women's Handicap 1 - 18
 
  -->
-<%= @round[:course_id] %>
-<%= @round[:round_length] %>
-<%= @round[:player_id]%>
-<%= @round[:start_hole] %>
-
 <%= @round.course[:name] %>
 
-<% @round.scores.each do |score| %>
-<%= score[:score] %>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th width="150">Hole</th>
+        <% @round.scores.each do |score| %>
+          <th width="10"><%= score[:hole_id] %></th>
+        <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Score</td>
+      <td><% @round.scores.each do |score| %>
+            <td>
+              <% if score == nil %>
+                    <p> Add / Edit </p>
+              <% else %>
+                    <%= score[:score] %> 
+              <% end %>
+            </td>
+          <% end %>
+      
+      
+     
+    </tr>
+
+    <tr>
+      <td>Tee: <%= @round.tee[:colour].capitalize %></td>
+
+      <td><%# @round.yardage.each do |yardage| %>
+        
+        <%# end %>
+
+      <td>#</td>
+      <td>#</td>
+    </tr>
+
+    <tr>
+      <td>Handicap</td>
+      <td>#</td>
+      <td>#</td>
+      <td>#</td>
+    </tr>
+    <tr>
+      <td>Par</td>
+      <td>#</td>
+      <td>#</td>
+      <td>#</td>
+    </tr>
+  </tbody>
+</table>

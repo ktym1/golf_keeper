@@ -20,6 +20,8 @@ class RoundsController < ApplicationController
     @round = Round.find(params[:id])
     @player = Player.find(params[:player_id])
     @course = Course.find(@round.course_id)
+    @tee = @round.tee
+    @yardage = @tee.yardages
   end
 
   def edit
