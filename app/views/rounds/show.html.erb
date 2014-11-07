@@ -32,33 +32,27 @@ Women's Handicap 1 - 18
                     <%#= score[:score] %> 
               <%# end %>
             </td>
-          <% end %>
-      
-      
-     
+        <% end %> 
     </tr>
-
+    
     <tr>
       <td>Tee: <%= @round.tee[:colour].capitalize %> </td>
         <% @round.scores.each do |score| %>
-
-        <td> <%= score.get_yards %> </td>
-      <% end %>
-        <td>#</td>
-        <td>#</td>
+          <td> <%= score.get_yards %> </td>
+        <% end %>
     </tr>
 
     <tr>
-      <td>Handicap</td>
+      <td>Handicap: <%= @round.player[:gender].capitalize %></td>
       <td>#</td>
       <td>#</td>
       <td>#</td>
     </tr>
     <tr>
       <td>Par</td>
-      <td>#</td>
-      <td>#</td>
-      <td>#</td>
+         <% @round.scores.each do |score| %>
+      <td><%= score.hole[:par]%></td>
+        <% end %>
     </tr>
   </tbody>
 </table>
