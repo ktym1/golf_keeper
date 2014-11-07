@@ -21,7 +21,7 @@ class RoundsController < ApplicationController
     @player = Player.find(params[:player_id])
     @course = Course.find(@round.course_id)
     @tee = @round.tee
-    @yardage = @tee.yardages
+    # @yardage = @tee.yardages
   end
 
   def edit

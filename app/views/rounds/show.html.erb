@@ -17,19 +17,19 @@ Women's Handicap 1 - 18
     <tr>
       <th width="150">Hole</th>
         <% @round.scores.each do |score| %>
-          <th width="10"><%= score[:hole_id] %></th>
+          <th width="10"><%= score.hole[:hole_number] %></th>
         <% end %>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Score</td>
-      <td><% @round.scores.each do |score| %>
+        <% @round.scores.each do |score| %>
             <td>
               <%# if score == nil %>
                     <p> <%= link_to "Add Score", new_player_round_score_path(@player, @round) %></p>
               <%# else %>
-                    <%= score[:score] %> 
+                    <%#= score[:score] %> 
               <%# end %>
             </td>
           <% end %>
@@ -39,11 +39,9 @@ Women's Handicap 1 - 18
     </tr>
 
     <tr>
-      <td>Tee: <%= @round.tee[:colour].capitalize %></td>
+      <td>Tee: </td>
 
-      <td><%# @round.yardage.each do |yardage| %>
-        
-        <%# end %>
+      <td></td>
 
       <td>#</td>
       <td>#</td>
