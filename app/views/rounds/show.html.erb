@@ -39,12 +39,13 @@ Women's Handicap 1 - 18
     </tr>
 
     <tr>
-      <td>Tee: </td>
+      <td>Tee: <%= @round.tee[:colour].capitalize %> </td>
+        <% @round.scores.each do |score| %>
 
-      <td></td>
-
-      <td>#</td>
-      <td>#</td>
+        <td> <%= score.get_yards %> </td>
+      <% end %>
+        <td>#</td>
+        <td>#</td>
     </tr>
 
     <tr>
