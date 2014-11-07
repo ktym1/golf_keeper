@@ -5,22 +5,45 @@
 	<p> Recent Activity: </p>
 
 <!-- Add in player info on their rounds of golf  -->
-<% @player.rounds.each do |round| %>
-<div class="row">
-	<div class="small-12 medium-4 large-4">
-		<h4> Round </h4> 
-			<p> <%= round.id %> </p> 
-		<h4> Course </h4>
-			<p> <%= round.course[:name] %></p>
-		<h4> Round Length </h4>
-			<p> <%= round.round_length %></p>
-		<h4>Score Total </h4>
-			<p> <%#= round.total %> </p>
-		<h4> Course Par </h4>		
-			<p> <%= round.par %> </p>
+ 
 
-	</div>
-</div>
-<% end %>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th width="50">Round</th>
+      <th width="100">Course</th>
+      <th width="50"># Holes</th>
+      <th width="50">Score</th>
+      <th width="50">Par</th>
+      <th width="50">+/-</th>
+      <th width="50">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% render @player.rounds %> 
+      <!-- <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td> -->
+    </tr>
+    <tr>
+      <td>Content Goes Here</td>
+      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+    </tr>
+    <tr>
+      <td>Content Goes Here</td>
+      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+    </tr>
+  </tbody>
+
+</table>
+
 
 <h4> <%= link_to "Start a new round", new_player_round_path(@player) %> </h4>
