@@ -23,33 +23,18 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <% render @player.rounds %> 
-      <!-- <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td> -->
-    </tr>
-    <tr>
-      <td> Round Count </td>
-      <td> Course ERB Loop</td>
-      <td> Hole ERB Loop </td>
-      <td> Score ERB Loop</td>
-      <td> Par ERB Loop </td>
-      <td> Score Differential</td>
-      <td> Date </td>
-    </tr>
-   	
-   	<tr>
-      <td> Round Count </td>
-      <td> Course ERB Loop</td>
-      <td> Hole ERB Loop </td>
-      <td> Score ERB Loop</td>
-      <td> Par ERB Loop </td>
-      <td> Score Differential</td>
-      <td> Date </td>
-    </tr>
+    <% @player.rounds.each do |round| %>
+      <tr>
+        <td> <%= round.id %> </td>
+        <td> <%= round.course %> </td>
+        <td> <%= round.round_length %> </td>
+        <td> <%= round.total %> </td>
+        <td> <%= round.par %> </td>
+        <td> Score Differential: TO DO </td>
+        <td> <%= round.updated_at %>To Do </td>
+      </tr>
+    <% end %>
   </tbody>
-
 </table>
 
 

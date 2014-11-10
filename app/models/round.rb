@@ -15,8 +15,8 @@ class Round < ActiveRecord::Base
 
 	def total
 		round_total = 0
-		scores.each do |total|
-			round_total += total.score
+		scores.each do |score_model|
+			round_total += score_model.score unless score_model.score.nil?	
 		end
 		return round_total
 	end
