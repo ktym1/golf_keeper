@@ -6,10 +6,6 @@
 
 <!-- Add in player info on their rounds of golf  -->
  
-
-
-
-
 <table>
   <thead>
     <tr>
@@ -26,12 +22,12 @@
     <% @player.rounds.each do |round| %>
       <tr>
         <td> <%= round.id %> </td>
-        <td> <%= round.course %> </td>
+        <td> <%= round.course.name %> </td>
         <td> <%= round.round_length %> </td>
         <td> <%= round.total %> </td>
         <td> <%= round.par %> </td>
-        <td> Score Differential: TO DO </td>
-        <td> <%= round.updated_at %>To Do </td>
+        <td> <%= round.score_differential %> </td>
+        <td> <%= round.time_update %>To Do </td>
       </tr>
     <% end %>
   </tbody>
