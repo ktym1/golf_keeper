@@ -14,7 +14,7 @@ class Player < ActiveRecord::Base
 	validates :gender, presence: true, :inclusion => ["m", "f", "M", "F"]
 
 	has_secure_password
-	validates :password, length: { minimum: 6}
+	validates :password, length: { minimum: 6}, :if => :password
 
 	validates_numericality_of :handicap_index, only_integer: false
 

@@ -24,11 +24,22 @@ class PlayersController < ApplicationController
   end
   
   def update
+    remove_password
+    @player = Player.find(params[:id])
     if @player.update_attributes(player_params)
       flash[:success] = "Profile updated"
       redirect_to @player
     else
       render "edit"
+    end
+  end
+
+  private
+  #Please, change this method name. I ain't creative now
+  def remove_password
+    if player_params[:password].blank?
+       player_params.delete("password")
+       player_params.delete("password_confirmation")
     end
   end
 
