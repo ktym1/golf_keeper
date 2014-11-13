@@ -31,5 +31,11 @@ class Hole < ActiveRecord::Base
 	# 	end
 	# end
 	
+	def self.male
+		where("gender = ?", "m")
+	end
 
+	def self.female
+		where("gender = ?", "f")
+	end
 end

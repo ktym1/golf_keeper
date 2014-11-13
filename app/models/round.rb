@@ -6,7 +6,7 @@ class Round < ActiveRecord::Base
 	belongs_to :player
 	belongs_to :tee
 	has_many :scores
-	
+	has_many :holes, through: :scores
 	
 	validates :course_id, presence: true, numericality: {only_integer: true}
 	validates :round_length, presence: true, numericality: {only_integer: true}
@@ -45,8 +45,9 @@ class Round < ActiveRecord::Base
 	end
 
 	def create_scores
-		# take this round's course, and create a nil score for each hole
-		self.course.holes.each do |hole|
+		gender_acronym = self.player.gender
+		gender = gender_acronym.downcase == "m" ? "male" : "female" 
+		self.course.holes.send(gender).each do |hole|
 			Score.find_or_create_by(round_id: self.id, hole_id: hole.id)
 		end
 	end

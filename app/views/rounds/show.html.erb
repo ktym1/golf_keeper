@@ -44,9 +44,9 @@ Women's Handicap 1 - 18
 
     <tr>
       <td>Handicap: <%= @round.player.gender.capitalize %></td>
-      <td>#</td>
-      <td>#</td>
-      <td>#</td>
+      <% @round.holes.each do |hole| %>
+        <td> <%= hole.handicap_rating %></td>
+      <% end %>
     </tr>
     <tr>
       <td>Par</td>
