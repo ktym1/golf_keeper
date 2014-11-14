@@ -1,4 +1,10 @@
 class RoundsController < ApplicationController
+  before_action :get_round, :only => [:show, :edit, :update]
+
+  def get_round
+    @round = Round.find(params[:id])
+  end
+  
   def new
     @player = Player.find(params[:player_id])
     @round = Round.new
@@ -17,7 +23,6 @@ class RoundsController < ApplicationController
   end
 
   def show
-    @round = Round.find(params[:id])
   end
 
   def edit
@@ -29,9 +34,9 @@ class RoundsController < ApplicationController
   def destroy
   end
 
-  private
+    private
 
-  def round_params
-    params.require(:round).permit(:course_id, :round_length, :player_id, :start_hole)
-  end
+      def round_params
+        params.require(:round).permit(:course_id, :round_length, :player_id, :start_hole)
+      end
 end
