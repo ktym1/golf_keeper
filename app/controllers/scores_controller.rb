@@ -1,4 +1,5 @@
 class ScoresController < ApplicationController
+	before_action :get_score, :only => [:edit, :update]
 	# def new
 	# 	@score = Score.new
 	# end
@@ -12,13 +13,16 @@ class ScoresController < ApplicationController
  #        render :new
  #      end
 		# end
-	
-	def edit
-		@score = Score.find(params[:id])
+
+	def get_score
+		begin
+			@score = Score.find(params[:id])
+		rescue
+			render 'shared/not_found'
+		end
 	end
 
 	def update
-		@score = Score.find(params[:id])
 		if @score.update(score_params)
 			redirect_to player_round_url(@score.player, @score.round)
 		else
@@ -26,10 +30,12 @@ class ScoresController < ApplicationController
 		end
 	end
 
+	def edit
+	end
 
 	private
 
-	def score_params
-		params.require(:score).permit(:hole_id, :round_id, :score)
-	end
+		def score_params
+			params.require(:score).permit(:hole_id, :round_id, :score)
+		end
 end

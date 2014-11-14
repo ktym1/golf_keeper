@@ -9,7 +9,7 @@ class PlayersController < ApplicationController
   	@player = Player.new(player_params)
   	if @player.save
       sign_in @player
-      flash[:success] = "Welcome to the Sample App"
+      flash[:success] = "Welcome to Golf Keeper"
   		redirect_to @player
   	else
   		render 'new'
