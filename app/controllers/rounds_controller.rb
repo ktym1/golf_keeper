@@ -2,7 +2,11 @@ class RoundsController < ApplicationController
   before_action :get_round, :only => [:show, :edit, :update]
 
   def get_round
-    @round = Round.find(params[:id])
+    begin
+      @round = Round.find(params[:id])
+    rescue
+      render 'shared/not_found'
+    end
   end
   
   def new
