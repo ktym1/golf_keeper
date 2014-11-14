@@ -10,14 +10,14 @@ Men's Handicap 1 - 18
 Women's Handicap 1 - 18
 
  -->
-<%= @round.course[:name] %>
+<%= @round.course.name %>
 
 <table>
   <thead>
     <tr>
       <th width="150">Hole</th>
-        <% @round.scores.each do |score| %>
-          <th width="10"><%= score.hole.hole_number %></th>
+        <% @round.holes.each do |hole| %>
+          <th width="10"><%= hole.hole_number %></th>
         <% end %>
     </tr>
   </thead>
@@ -29,7 +29,7 @@ Women's Handicap 1 - 18
               <% if score.score %>
                 <%= score.score %> 
               <% else %>
-                <p> <%= link_to "Add Score", new_player_round_score_path(@player, @round) %></p>
+                <p> <%= link_to "Add Score", edit_player_round_score_path(@round.player, @round, score) %></p>
               <% end %>
             </td>
         <% end %> 
@@ -50,8 +50,8 @@ Women's Handicap 1 - 18
     </tr>
     <tr>
       <td>Par</td>
-      <% @round.scores.each do |score| %>
-        <td><%= score.hole[:par]%></td>
+      <% @round.holes.each do |hole| %>
+        <td><%= hole.par %></td>
       <% end %>
     </tr>
   </tbody>
