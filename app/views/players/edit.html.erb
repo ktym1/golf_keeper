@@ -1,3 +1,7 @@
-<h1> Update your profile </h1>
-
-  <%= render partial: "form", locals: {player: @player, button_text: "Update Profile"} %>
+<div class="row">
+	<div class="large-4 columns">  
+		<%= link_to "Profile", player_path(@player) %> <br>
+  		<%= link_to "Update Password" %>
+  	</div>
+  	<%= render partial: "form", locals: {player: @player, button_text: "Update Profile"} %>
+</div>
