@@ -11,7 +11,7 @@ class ScoresController < ApplicationController
  #      else
  #        render :new
  #      end
-	# end
+		# end
 	
 	def edit
 		@score = Score.find(params[:id])
