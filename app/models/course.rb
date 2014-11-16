@@ -5,5 +5,8 @@ class Course < ActiveRecord::Base
 	has_many :players, through: :rounds
 	
 	validates :name, presence: true, uniqueness: true
-	
+
+ 	def availability(party_size)
+ 		party_size <= capacity
+ 	end	
 end
