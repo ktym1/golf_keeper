@@ -29,4 +29,9 @@ describe Course do
     reservation = Reservation.create(course: course, number_of_golfers: 4)
     expect(course.availability(17)).to be_false
   end
+
+  it "should return true when course empty at 7am" do
+    reservation_time = DateTime.new(2014,5,17,07,00,00)
+    reservation = Reservation.create(number_of_golfers: 1, reservation_time: reservation_time)
+  end
 end
