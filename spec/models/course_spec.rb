@@ -18,20 +18,23 @@ describe Course do
   end
 
   it 'return true when number of golfers is less than capacity' do
-    expect(course.availability(10)).to be_true
+    expect(course.availability(10, nil)).to be_true
   end
 
   it "return false when number of golfers is greater than capacity" do
-    expect(course.availability(25)).to be_false
+    expect(course.availability(25, nil)).to be_false
   end
 
   it "should return false when reservations plus number of golfers doesn't fit" do 
     reservation = Reservation.create(course: course, number_of_golfers: 4)
-    expect(course.availability(17)).to be_false
+    expect(course.availability(17, nil)).to be_false
   end
 
   it "should return true when course empty at 7am" do
-    reservation_time = DateTime.new(2014,5,17,07,00,00)
+    reservation_time = DateTime.new(2014,5,17,06,00,00)
     reservation = Reservation.create(number_of_golfers: 1, reservation_time: reservation_time)
+
+    t = DateTime.new(2014,5,17,07,00,00)
+    expect(course.availability(18, t)).to be_true
   end
 end
