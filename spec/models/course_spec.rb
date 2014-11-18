@@ -17,11 +17,16 @@ describe Course do
   	expect(course).to have(1).errors_on(:name)
   end
 
-  it 'return true when golf party size is less than capacity' do
+  it 'return true when number of golfers is less than capacity' do
     expect(course.availability(10)).to be_true
   end
 
-  it "return false when party size is greater than capacity" do
+  it "return false when number of golfers is greater than capacity" do
     expect(course.availability(25)).to be_false
+  end
+
+  it "should return false when reservations plus number of golfers doesn't fit" do 
+    reservation = Reservation.create(course: course, number_of_golfers: 4)
+    expect(course.availability(17)).to be_false
   end
 end

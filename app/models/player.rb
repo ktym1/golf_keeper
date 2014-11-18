@@ -1,6 +1,9 @@
 class Player < ActiveRecord::Base
 	has_many :rounds
 	has_many :courses, through: :rounds
+	# has_many :reservations
+	# has_many :courses, through: :reservations
+
 
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
