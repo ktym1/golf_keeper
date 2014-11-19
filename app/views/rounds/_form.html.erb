@@ -1,9 +1,8 @@
-<%= form_for [@player, @round] do |f| %>
+<%= form_for [player, round] do |f| %>
 	<%= f.label :course %>
 	<%= f.collection_select(:course_id, @courses, :id, :name) %>
 
-	<%#<%= f.label :tee %>
-	<%= f.label(:tee, "Tee Colour", :data => {:colour => "copper", :colour => "blue"}) %>
+	<%= f.label :tee %>
 	<%= f.collection_select(:tee_id, @tees, :id, :colour) %> 
 
 	<%= f.label :round_length, 9 %>
@@ -22,6 +21,7 @@
 	<%= f.submit %> 
 <% end %>
 
+<%#= f.label(:tee, "Tee Colour", :data => {:colour => "copper", :color => "blue"}) %>
 <!-- <select id= "course-selector"></select>
 
 <div class="hide" data-options-for-course-id="1">
