@@ -3,8 +3,6 @@ class Course < ActiveRecord::Base
 	has_many :rounds
 	has_many :tees
 	has_many :players, through: :rounds
-	has_many :reservations
-	# has_many :players, through: :reservations
 
 	validates :name, presence: true, uniqueness: true
 

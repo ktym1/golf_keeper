@@ -47,6 +47,11 @@ class Round < ActiveRecord::Base
 	def create_scores
 		gender_acronym = self.player.gender
 		gender = gender_acronym.downcase == "m" ? "male" : "female" 
+		if gender_acronym.downcase == "m"
+				gender = "male"
+		else
+				gender = "female"
+				ed
 		self.course.holes.send(gender).each do |hole|
 			Score.find_or_create_by(round_id: self.id, hole_id: hole.id)
 		end
