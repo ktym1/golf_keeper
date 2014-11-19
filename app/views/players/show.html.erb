@@ -19,9 +19,9 @@
     </tr>
   </thead>
   <tbody>
-    <% @player.rounds.each do |round| %>
+    <% @player.rounds.each_with_index do |round, index| %>
       <tr>
-        <td> <%= round.round_count %> </td>
+        <td> <%= index + 1 %> </td>
         <td> <%= round.course.name %> </td>
         <td> <%= round.round_length %> </td>
         <td> <%= round.total %> </td>
