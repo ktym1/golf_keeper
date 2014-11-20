@@ -19,7 +19,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @player.rounds.each_with_index do |round, index| %>
+    <% @player.rounds.ordered_by_last_updated_score.each_with_index do |round, index| %>
       <tr>
         <td> <%= index + 1 %> </td>
         <td> <%= round.course.name %> </td>

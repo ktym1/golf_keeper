@@ -61,6 +61,11 @@ class Round < ActiveRecord::Base
 		end
 	end
 
+	def self.ordered_by_last_updated_score
+		self.joins(:scores).order("scores.updated_at")
+	end
+	
+
 	def score_differential
 		#Take current player round's total score and compare it to par.
 		if total > par
