@@ -58,14 +58,11 @@ class Round < ActiveRecord::Base
 	end
 	
 
-	def score_differential
-		#Take current player round's total score and compare it to par.
-		if total > par
-			total - par
-		elsif total < par
-			par - total
-		else
-			"N/A"
+	def score_differential_sum
+		diff = []
+		scores.each do |score_model|
+		diff <<	score_model.score_differential unless score_model.score.nil?	
 		end
+		return diff.sum
 	end
 end

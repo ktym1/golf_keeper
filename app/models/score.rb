@@ -11,4 +11,8 @@ class Score < ActiveRecord::Base
 		yardages = self.hole.yardages.where("tee_id = ?", self.round.tee_id).first
 		yardages.yards
 	end
+
+	def score_differential
+		score - hole.par if !score.nil?
+	end
 end
