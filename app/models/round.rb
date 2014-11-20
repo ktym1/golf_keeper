@@ -13,13 +13,6 @@ class Round < ActiveRecord::Base
 	validates :player_id, presence: true, numericality: {only_integer: true}
 	validates :start_hole, presence: true, inclusion: { in: 1..18 }
 
-	#need to count # of player's rounds
-	def round_count
-		# player_rounds = 0
-			# Round.where(player_id:4).count
-	end
-
-	#need to capture nil score field since nil can't be added to
 	def total
 		round_total = 0
 		scores.each do |score_model|
@@ -28,11 +21,10 @@ class Round < ActiveRecord::Base
 		return round_total
 	end
 
-	#need to update
 	def par
 		par = 0
-		scores.each do |score|
-			par += score.hole.par
+		holes.each do |hole|
+			par += hole.par
 		end
 		return par
 	end
