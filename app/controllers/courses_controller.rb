@@ -42,6 +42,6 @@ class CoursesController < ApplicationController
 	
 	private
 	def course_params
-		params.require(:course).permit(:name, :handicap_course)
+		params.require(:course).permit(:name, :handicap_course, tees_attributes: [:id, :colour, :_destroy])
 	end
 end

@@ -1,8 +1,13 @@
 <%= form_for(course) do |f| %>
 		<%= f.label :name %>
 		<%= f.text_area :name %>
+
+		<% f.fields_for :tees do |tee| %>
+			<%render 'tee_fields', :f => tee %>
+		<% end %>
 	<p>
+		<%= link_to_add_association 'add tee', f, :tees %>
 	    <%= f.submit %> 
 	</p>
-
 <% end %>
+
