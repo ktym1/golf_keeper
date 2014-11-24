@@ -17,7 +17,14 @@
 	<tbody>
 		<tr>
 			<td> Par </td>
-		</tr>
+			<% @course.holes.each do |hole| %>
+				<td>
+					<%  if hole.par %>
+						<%= hole.par %>
+					<% else %>
+						<%= link_to "Add Par", edit_course_hole_path(@course, hole)%> <% end %>
+				</td>
+			<% end %>
 		<tr>
 			<td> Handicap: Men </td>
 		</tr>
@@ -29,4 +36,3 @@
 		</tr>
 	</tbody>
 </table>
-
