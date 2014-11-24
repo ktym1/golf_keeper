@@ -1,2 +1,15 @@
-
-	<li><%= hole[:id] %> </li>
+<table>
+	<thead>
+		<tr>
+			<th width="150"> Hole </th>
+				<% @course.holes.each do |hole| %>
+					<th width="10"><%= hole.hole_number %> </th>
+				<% end %>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> Par </td>
+		</tr>
+	</tbody>
+</table>

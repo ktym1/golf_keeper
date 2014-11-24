@@ -1,6 +1,22 @@
 <p> <%= @course[:name] %></p>
 <%= link_to "Edit", edit_course_path(@course) %> | <%= link_to "Delete", @delete, :confirm => "Are you sure you want to delete this course?", :method => :delete %>
 
-<h4> Holes </h4>
-<%= render @course.holes %>
+<h4> Course Holes </h4>
+<%#= render @course.holes %>
+<table>
+	<thead>
+		<tr>
+			<th width="150"> Hole </th>
+				<% @course.holes.each do |hole| %>
+					<th width="10"><%= hole.hole_number %> </th>
+				<% end %>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> Par </td>
+				
+		</tr>
+	</tbody>
+</table>
 
