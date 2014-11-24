@@ -18,6 +18,8 @@ class RoundsController < ApplicationController
 
   def create
     @player = Player.find(params[:player_id])
+    @courses = Course.all
+    @tees = Tee.all
     @round = @player.rounds.build(round_params)
       if @round.save
       redirect_to player_round_url(@player, @round)
