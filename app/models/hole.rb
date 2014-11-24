@@ -1,7 +1,7 @@
 class Hole < ActiveRecord::Base
 	belongs_to :course
-	has_many :scores
-	has_many :yardages
+	has_many :scores, dependent: :destroy
+	has_many :yardages, dependent: :destroy
 
 	validates :course_id, presence: true, numericality: {only_integer: true}
 	validates :par, presence: true, numericality: {only_integer: true}

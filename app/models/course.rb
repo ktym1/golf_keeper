@@ -1,8 +1,8 @@
 class Course < ActiveRecord::Base
 	after_save :create_holes
 
-	has_many :holes
-	has_many :rounds
+	has_many :holes, dependent: :destroy
+	has_many :rounds, dependent: :destroy
 	has_many :tees, dependent: :destroy
 	has_many :players, through: :rounds
 	accepts_nested_attributes_for :tees, :reject_if => :all_blank, :allow_destroy => true
