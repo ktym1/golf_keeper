@@ -1,4 +1,7 @@
 class HolesController < ApplicationController
+
+	before_filter :ensure_admin, only: [:create, :edit, :update, :destroy]
+
 	def show
 		@hole = Hole.find(params[:id])
 	end
