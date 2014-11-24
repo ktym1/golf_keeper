@@ -11,14 +11,11 @@ class Course < ActiveRecord::Base
 	validates :course_length, presence: true, inclusion: { in: [9, 18],
     message: "%{value} is not a valid course length" }
 
-    def create_holes
-		x = course_length
-			x.times do
-				self.holes.each do |hole| 
-					binding.pry
-				Hole.find_or_create_by(course_id: self.id, hole_id: hole.id)	
-				end 
-			end
+  def create_holes
+	(1..course_length).each do |number|
+		hole = Hole.where(course_id: self.id, hole_number: number).first_or_initialize
+		hole.save(validate: false)
+		end 
 	end
 
 end
