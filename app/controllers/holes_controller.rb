@@ -15,13 +15,15 @@ class HolesController < ApplicationController
 	end
 
 	def edit
+		@course = Course.find(params[:course_id])
 		@hole = Hole.find(params[:id])
 	end
 
 	def update
+		@course = Course.find(params[:course_id])
 		@hole = Hole.find(params[:id])
-		if @hole.update(hole_params)
-			redirect_to course_index_url(@course)
+		if @hole.update_attribute(:par, params[:par])
+			redirect_to course_url(@course)
 		else
 			render :edit
 		end

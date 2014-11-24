@@ -20,13 +20,21 @@
 			<% @course.holes.each do |hole| %>
 				<td>
 					<%  if hole.par %>
-						<%= hole.par %>
+						<%= link_to hole.par, edit_course_hole_path(@course, hole) %>
 					<% else %>
-						<%= link_to "Add Par", edit_course_hole_path(@course, hole)%> <% end %>
+						<%= link_to "Add Hole Info", edit_course_hole_path(@course, hole)%>  
+					<% end %>
 				</td>
 			<% end %>
 		<tr>
 			<td> Handicap: Men </td>
+			<% @course.holes.each do |hole| %>
+				<td>
+					<%  if hole.handicap_rating %>
+							<%= link_to hole.handicap_rating, edit_course_hole_path(@course, hole) %>
+					<% end %>
+				</td>
+			<% end %>
 		</tr>
 		<tr>
 			<td> Handicap: Women </td>

@@ -1,1 +1,31 @@
 <p> Edit Par </p>
+
+<%= form_for([@course, @hole]) do |f| %>
+	<%#= render "shared/error_messages" %>
+
+<div class="field">
+	<div class="par">
+		<%= f.label :par %><br>
+		<%= f.number_field :par, in: 0..5, :step => 1 %>
+	</div>
+</div>
+
+<div class="field">
+	<div class="handicap_rating">
+		<%= f.label :handicap_rating %><br>
+		<%= f.number_field :handicap_rating, in: 1..18, :step => 1 %>
+	</div>
+</div>
+
+<div class="field">
+	<div class="gender">
+		<%= f.label :gender, "Male" %>
+		<%= f.radio_button(:gender, "M") %> <br> 
+		<%= f.label :gender, "Female" %>
+		<%= f.radio_button(:gender, "F") %>
+	</div>
+</div>
+
+<div class="actions"><%= f.submit %></div>
+
+<% end %>
