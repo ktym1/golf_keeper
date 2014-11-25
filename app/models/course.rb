@@ -18,6 +18,7 @@ class Course < ActiveRecord::Base
 		hole = Hole.where(course_id: self.id, hole_number: number, gender: "f").first_or_initialize
 		hole.save(validate: false)
 		end 
-	end
+  end
 
+  
 end
