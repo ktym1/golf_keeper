@@ -7,13 +7,13 @@ class Hole < ActiveRecord::Base
 	validates :par, presence: true, numericality: {only_integer: true}
 
 	validates :hole_number, inclusion: { in: 1..18, message: "Must be from 1 to 18" } 
-	validates :hole_number, uniqueness: { scope: :course_id,
-    message: "should be unique for this course" }
+	validates :hole_number, uniqueness: { scope: :gender,
+    message: "should be unique for this course's gender" }
     
     validates :handicap_rating, presence: true, numericality: {only_integer: true}
     validates :handicap_rating, inclusion: { in: 1..18, message: "Must be from 1 to 18" } 
-    validates :handicap_rating, uniqueness: { scope: :course_id,
-    message: "should be unique for this course" }
+    validates :handicap_rating, uniqueness: { scope: :gender,
+    message: "should be unique for this course's gender" }
     
     validates :gender, :inclusion => ["m", "f", "M", "F"]
 	# validate :course_should_exist

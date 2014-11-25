@@ -52,7 +52,7 @@
 	<tbody>
 		<tr>
 			<td> Par </td>
-			<% @course.holes.male.each do |hole| %>
+			<% @course.holes.female.each do |hole| %>
 				<td>
 					<%  if hole.par %>
 						<%= link_to hole.par, edit_course_hole_path(@course, hole) %>
@@ -61,9 +61,15 @@
 					<% end %>
 				</td>
 			<% end %>
-		
 		<tr>
 			<td> Handicap: Women </td>
+			<% @course.holes.female.each do |hole| %>
+				<td>
+					<%  if hole.handicap_rating %>
+							<%= link_to hole.handicap_rating, edit_course_hole_path(@course, hole) %>
+					<% end %>
+				</td>
+			<% end %>
 		</tr>
 		<% @course.tees.each do |tee| %>
 		<tr>

@@ -19,10 +19,7 @@
 
 <div class="field">
 	<div class="gender">
-		<%= f.label :gender, "Male" %>
-		<%= f.radio_button(:gender, "M") %> <br> 
-		<%= f.label :gender, "Female" %>
-		<%= f.radio_button(:gender, "F") %>
+		<% hidden_field(:hole, :gender) %>
 	</div>
 </div>
 
