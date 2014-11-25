@@ -13,7 +13,9 @@ class Course < ActiveRecord::Base
 
   def create_holes
 	(1..course_length).each do |number|
-		hole = Hole.where(course_id: self.id, hole_number: number).first_or_initialize
+		hole = Hole.where(course_id: self.id, hole_number: number, gender: "m").first_or_initialize
+		hole.save(validate: false)
+		hole = Hole.where(course_id: self.id, hole_number: number, gender: "f").first_or_initialize
 		hole.save(validate: false)
 		end 
 	end
