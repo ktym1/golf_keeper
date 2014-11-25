@@ -9,7 +9,9 @@ class Score < ActiveRecord::Base
 	
 	def get_yards 
 		yardages = self.hole.yardages.where("tee_id = ?", self.round.tee_id).first
-		yardages.yards
+		if yardages
+			yardages.yards
+		end
 	end
 
 	def score_differential
