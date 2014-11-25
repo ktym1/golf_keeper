@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'player_courses/index'
+
+  get 'player_courses/show'
+
   resources :home, only: [:index]
   root :to => "home#index"
   
@@ -11,6 +15,8 @@ Rails.application.routes.draw do
     resources :rounds do
       resources :scores
     end
+    get 'courses' => 'player_courses#index'
+    get 'courses/:id' => 'player_courses#show'
   end
 
   resources :sessions, only: [:new, :create, :destroy]
