@@ -54,7 +54,7 @@ class Round < ActiveRecord::Base
 	end
 
 	def self.ordered_by_last_updated_score
-		self.joins(:scores).order("scores.updated_at")
+		self.joins(:scores).uniq.order("scores.updated_at")
 	end
 	
 
