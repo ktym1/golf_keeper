@@ -9,7 +9,7 @@ class HolesController < ApplicationController
 	def create
 		@course = Course.find(params[:course_id])
 
-		@hole = @course.holes.create(holes_params)
+		@hole = @course.holes.create(hole_params)
 		if @holes.save
 			redirect_to course_path(@course), notice: "Hole created successfully"
 		else
@@ -20,12 +20,14 @@ class HolesController < ApplicationController
 	def edit
 		@course = Course.find(params[:course_id])
 		@hole = Hole.find(params[:id])
+		@tees = Tee.all
 	end
 
 	def update
 		@course = Course.find(params[:course_id])
 		@hole = Hole.find(params[:id])
-		if @hole.update_attribute(:par, params[:par])
+		if @hole.update_attributes(hole_params)
+			flash[:success] = "Hole updated"
 			redirect_to course_url(@course)
 		else
 			render :edit
@@ -35,6 +37,6 @@ class HolesController < ApplicationController
 
 	private
 		def hole_params
-			params.require(:hole).permit(:course_id, :par, :hole_number, :handicap_rating, :gender)
+			params.require(:hole).permit(:course_id, :par, :hole_number, :handicap_rating, :gender, :tee_id)
 		end
 end

@@ -1,4 +1,4 @@
-<p> Edit Par </p>
+<p> Edit Hole </p>
 
 <%= form_for([@course, @hole]) do |f| %>
 	<%#= render "shared/error_messages" %>
@@ -26,6 +26,11 @@
 	</div>
 </div>
 
+<div class="field">
+		<%#= f.label :colour, "Tee Colour" %>
+		<%#= f.collection_select(:tee_id, @tees, :id, :colour) %>
+</div>
+	
 <div class="actions"><%= f.submit %></div>
 
 <% end %>
