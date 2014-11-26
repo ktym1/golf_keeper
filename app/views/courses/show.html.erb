@@ -32,10 +32,13 @@
 				</td>
 			<% end %>
 		</tr>
-		<% @course.tees.each do |tee| %>
+			<% @course.tees.each do |tee| %>
 		<tr>
-			<td> Tee: <%= tee.colour %>  </td>
-		<% end %>
+				<td> Tee: <%= tee.colour %>  </td>
+			<% end %>
+			<%# @course.holes.each do |hole| %>
+				<td> <%#= @course.tee_yards %></td>
+			<%# end %>
 		</tr>
 	</tbody>
 </table>

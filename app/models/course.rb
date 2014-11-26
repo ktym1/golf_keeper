@@ -5,6 +5,7 @@ class Course < ActiveRecord::Base
 	has_many :rounds, dependent: :destroy
 	has_many :tees, dependent: :destroy
 	has_many :players, through: :rounds
+	has_many :yardages, through: :tees
 	accepts_nested_attributes_for :tees, :reject_if => :all_blank, :allow_destroy => true
 
 	validates :name, presence: true, uniqueness: true
@@ -20,5 +21,13 @@ class Course < ActiveRecord::Base
 		end 
   end
 
-  
+	def tee_yards
+		yardages = self.yardages.where(hole_id: 1, tee_id: 1)
+			binding.pry
+			if yardages
+				yardages.yards
+			else
+				puts "*****"
+			end
+	end 
 end
