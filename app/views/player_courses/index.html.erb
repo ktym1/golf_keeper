@@ -1,2 +1,28 @@
-<h1>PlayerCourses#index</h1>
-<p>Find me in app/views/player_courses/index.html.erb</p>
+<p> Course Stats </p>
+
+
+
+
+
+<table>
+	<thead>
+		<% @course.each do |course| %>
+		<tr>	
+			<th width="150"> <%= course.name %></th>
+			<th width="50"> Overall </th>
+			<th width="50"> Average </th>
+			<th width="50"> Your Overall </th>
+			<th width="50"> Your Average </th>
+			<th width="50"> Your Rank </th>
+		</tr>
+		<% end %>
+	</thead>
+	<tbody>
+		<tr>
+			<th>Best Score </th>
+		</tr>
+		<tr>
+			<th> Worst Score </th>
+		</tr>
+	</tbody>
+</table>

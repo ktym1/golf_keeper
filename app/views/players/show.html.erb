@@ -3,8 +3,6 @@
 	<p> Email: <%= @player.email %> </p>
 	<p> Handicap Index: <%= @player.handicap_index %> </p>
 	<p> Recent Activity: </p>
-
-<!-- Add in player info on their rounds of golf  -->
  
 <table>
   <thead>
@@ -22,7 +20,9 @@
     <% @player.rounds.ordered_by_last_updated_score.each_with_index do |round, index| %>
       <tr>
         <td> <%= index + 1 %> </td>
-        <td> <%= round.course.name %> </td>
+        <td> 
+          <%= link_to round.course.name, player_round_path(@player, round) %> 
+        </td>
         <td> <%= round.round_length %> </td>
         <td> <%= round.total %> </td>
         <td> <%= round.par %> </td>
@@ -33,5 +33,22 @@
   </tbody>
 </table>
 
+<table>
+  <thead>
+     <th width="150"> Stats Comparison </th> 
+    <tr>
+      <th width="50"><%= link_to "All courses", player_courses_index_path %></th>
+  </thead>
+  <tbody>
+    <tr>
+      <% @player.courses.each do |course| %>
+      <td>
+          <%= link_to course.name %>
+      </td>
+      <% end %>
+      
+    </tr>
+  </tbody>
+</table>
 
 <h4> <%= link_to "Start a new round", new_player_round_path(@player) %> </h4>
