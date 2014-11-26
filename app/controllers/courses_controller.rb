@@ -12,6 +12,7 @@ class CoursesController < ApplicationController
 
 	def create
 		@course = Course.new(course_params)
+		@tees = Tee.all
 		if @course.save
 			redirect_to courses_url
 		else
@@ -25,6 +26,7 @@ class CoursesController < ApplicationController
 
 	def edit
 		@course = Course.find(params[:id])
+		@tees = Tee.all
 	end
 
 	def destroy
