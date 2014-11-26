@@ -17,4 +17,8 @@ class Score < ActiveRecord::Base
 	def score_differential
 		score - hole.par if !score.nil?
 	end
+
+	def self.best_score_total
+		Score.where("course_id = ?", x; AND "score = ?", MAX(self.score))
+	end
 end
