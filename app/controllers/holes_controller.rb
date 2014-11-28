@@ -17,10 +17,13 @@ class HolesController < ApplicationController
 		end
 	end
 
-	def edit
+	def edit 
 		@course = Course.find(params[:course_id])
 		@hole = Hole.find(params[:id])
 		@tees = Tee.all
+		@course.tees.each do |tee|
+			@hole.yardages.build(tee_id: tee.id)
+		end
 	end
 
 	def update

@@ -1,0 +1,38 @@
+<%= form_for([course, hole]) do |f| %>
+	<%#= render "shared/error_messages" %>
+
+<div class="field">
+	<div class="par">
+		<%= f.label :par %><br>
+		<%= f.number_field :par, in: 0..5, :step => 1 %>
+	</div>
+</div>
+
+<div class="field">
+	<div class="handicap_rating">
+		<%= f.label :handicap_rating %><br>
+		<%= f.number_field :handicap_rating, in: 1..18, :step => 1 %>
+	</div>
+</div>
+
+<div class="field">
+	<div class="gender">
+		<% hidden_field(:hole, :gender) %>
+	</div>
+</div>
+
+<div class="field">
+	<%= f.fields_for :yardages do |builder| %>
+		<%= builder.hidden_field :tee_id %>
+		<%= builder.object.tee.colour %>
+		<%= builder.label :yards %>
+		<%= builder.text_field :yards %>
+		<%# render 'yardage_fields', :f => builder %>
+	<% end %>
+	<p>
+		<%= link_to_add_association 'Add Yards', f, :yardages %> <br>
+</div>
+	
+<div class="actions"><%= f.submit %></div>
+
+<% end %>
