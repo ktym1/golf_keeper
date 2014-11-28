@@ -24,8 +24,11 @@
 </div>
 
 <div class="field">
-		<%#= f.label :colour, "Tee Colour" %>
-		<%#= f.collection_select(:tee_id, @tees, :id, :colour) %>
+	<%= f.fields_for :yardages do |yardage| %>
+			<% render 'yardage_fields', :f => yardage %>
+		<% end %>
+	<p>
+		<%= link_to_add_association 'Add Yards', f, :yardages %> <br>
 </div>
 	
 <div class="actions"><%= f.submit %></div>

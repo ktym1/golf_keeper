@@ -16,21 +16,8 @@ class Hole < ActiveRecord::Base
     message: "should be unique for this course's gender" }
     
     validates :gender, :inclusion => ["m", "f", "M", "F"]
-	# validate :course_should_exist
+    accepts_nested_attributes_for :yardages, :reject_if => :all_blank, :allow_destroy => true
 
-	# def course_should_exist
-	# 	if course.blank?
-	# 		errors.base.add("Course does not exist.")
-	# 		return false
-	# 	end
-	# end
-
-	# def new_hole_count
-	# 	if @course is new
-	# 		@hole begins at 1
-	# 	end
-	# end
-	
 	def self.male
 		where("gender = ?", "m")
 	end
