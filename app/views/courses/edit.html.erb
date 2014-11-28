@@ -1,24 +1,3 @@
 <p> Edit </p>
 
-<%#= render partial: "form", locals: {course: @course} %>
-
-<%= form_for(@course) do |f| %>
-		<%= f.label :name %>
-		<%= f.text_area :name %>
-
-		<%= f.label :course_length, 9 %>
-		<%= f.radio_button(:course_length, 9)%></br>
-
-		<%= f.label :course_length, 18 %>
-		<%= f.radio_button(:course_length, 18)%></br>
-
-		<% f.label :tees %>
-		
-			<%#render 'tee_fields', :f => tee %>
-		<%# end %>
-	<p>
-		<%#= link_to_add_association 'Add Tee', f, :tees %> <br>
-	    <%= f.submit %> 
-	</p>
-<% end %>
-
+<%= render partial: "form", locals: {course: @course} %>

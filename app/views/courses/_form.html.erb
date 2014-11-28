@@ -8,7 +8,7 @@
 		<%= f.label :course_length, 18 %>
 		<%= f.radio_button(:course_length, 18)%></br>
 
-		<% f.fields_for :tees do |tee| %>
+		<%= f.fields_for :tees do |tee| %>
 			<%render 'tee_fields', :f => tee %>
 		<% end %>
 	<p>
