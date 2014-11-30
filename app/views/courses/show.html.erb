@@ -28,9 +28,10 @@
 			<td> Handicap: Men </td>
 			<% @course.holes.male.each do |hole| %>
 				<td>
-					<%  if hole.handicap_rating %>
-							<%= link_to hole.handicap_rating, edit_course_hole_path(@course, hole) %>
-					<% end %>
+					<%= best_in_place hole, :handicap_rating, :path => course_hole_path(@course, hole), :type => :input %>
+					<%#  if hole.handicap_rating %>
+							<%#= link_to hole.handicap_rating, edit_course_hole_path(@course, hole) %>
+					<%# end %>
 				</td>
 			<% end %>
 		</tr>
@@ -79,7 +80,11 @@
 		</tr>
 		<% @course.tees.each do |tee| %>
 		<tr>
-			<td> Tee: <%= tee.colour %>  </td>
+			<td> Tee: <%= tee.colour %> </td>
+				<% @course.holes.female.each do |hole| %>
+					<% yardage = hole.yardages.where("tee_id = ?", tee.id).first %>
+					<td> <%= yardage.blank? ? "n/a" : yardage.yards %> </td>
+				<% end %>
 		<% end %>
 		</tr>
 	</tbody>

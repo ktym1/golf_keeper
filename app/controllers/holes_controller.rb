@@ -32,12 +32,22 @@ class HolesController < ApplicationController
 	def update
 		@course = Course.find(params[:course_id])
 		@hole = Hole.find(params[:id])
-		if @hole.update_attributes(hole_params)
-			flash[:success] = "Hole updated"
-			redirect_to course_url(@course)
-		else
-			render :edit
-		end
+		# if @hole.update_attributes(hole_params)
+		# 	flash[:success] = "Hole updated"
+		# 	redirect_to course_url(@course)
+		# else
+		# 	render :edit
+		# end
+
+		respond_to do |format|
+		    if @hole.update_attributes(hole_params)
+		      format.html { redirect_to(@course, :notice => 'User was successfully updated.') }
+		      format.json { respond_with_bip(@course) }
+		    else
+		      format.html { render :action => "edit" }
+		      format.json { respond_with_bip(@course) }
+		    end
+  end
 
 	end
 
