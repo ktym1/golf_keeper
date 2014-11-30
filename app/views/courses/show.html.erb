@@ -34,12 +34,11 @@
 		</tr>
 			<% @course.tees.each do |tee| %>
 		<tr>
-				<td> Tee: <%= tee.colour %>  </td>
-			<% end %>
-			
-			<% @course.yardages.each do |yard| %>
-
-				<td> <%= yard.yards %></td>
+			<td> Tee: <%= tee.colour %> </td>
+				<% @course.holes.male.each do |hole| %>
+					<% yardage = hole.yardages.where("tee_id = ?", tee.id).first %>
+					<td> <%= yardage.blank? ? "n/a" : yardage.yards %> </td>
+				<% end %>
 			<% end %>
 		</tr>
 	</tbody>
