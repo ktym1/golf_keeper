@@ -40,6 +40,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'foundation-rails'
 gem 'cocoon'
+gem 'best_in_place'
 
 group :development do
 	gem 'pry'

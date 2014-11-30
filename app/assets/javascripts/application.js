@@ -15,6 +15,7 @@
 //= require foundation
 //= require_tree .
 //= require cocoon
+//= require best_in_place
 
 $(function() {
   $(document).foundation();
