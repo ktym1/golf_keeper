@@ -1,8 +1,8 @@
-<% if @player.errors.any? %>
+<% if resource.errors.any? %>
 	<div class = "error_messages">
-		<h2> The form contains <%= pluralize(@player.errors.count, "error") %>.
+		<h2> The form contains <%= pluralize(resource.errors.count, "error") %>.
 		<ul>
-			<% @player.errors.full_messages.each do |msg| %>
+			<% resource.errors.full_messages.each do |msg| %>
 				<li> <%= msg %> </li>
 			<% end %>
 		</ul>

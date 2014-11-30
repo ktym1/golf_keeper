@@ -18,7 +18,7 @@ class Score < ActiveRecord::Base
 		score - hole.par if !score.nil?
 	end
 
-	def self.best_score_total
-		Score.where("course_id = ?", x; AND "score = ?", MAX(self.score))
-	end
+	# def self.best_score_total
+	# 	Score.where("course_id = ?", x; AND "score = ?", MAX(self.score))
+	# end
 end
