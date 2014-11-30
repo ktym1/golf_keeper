@@ -21,8 +21,11 @@ class HolesController < ApplicationController
 		@course = Course.find(params[:course_id])
 		@hole = Hole.find(params[:id])
 		@tees = Tee.all
-		@course.tees.each do |tee|
-			@hole.yardages.build(tee_id: tee.id)
+		@yardages = @hole.yardages
+		if @yardages.blank?
+			@course.tees.each do |tee|
+				@hole.yardages.build(tee_id: tee.id)
+			end
 		end
 	end
 
