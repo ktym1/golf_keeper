@@ -15,11 +15,13 @@
 			<td> Par </td>
 			<% @course.holes.male.each do |hole| %>
 				<td>
-					<%  if hole.par %>
-						<%= link_to hole.par, edit_course_hole_path(@course, hole) %>
-					<% else %>
-						<%= link_to "Add Hole Info", edit_course_hole_path(@course, hole)%>  
-					<% end %>
+					<%#  if hole.par %>
+						<%#= link_to hole.par, edit_course_hole_path(@course, hole) %>
+						
+						<%= best_in_place hole, :par, :path => course_hole_path(@course, hole), :type => :input %>
+					<%# else %>
+						<%#= link_to "Add Hole Info", edit_course_hole_path(@course, hole)%>  
+					<%# end %>
 				</td>
 			<% end %>
 		<tr>
