@@ -29,11 +29,15 @@ class Course < ActiveRecord::Base
 		return score
 	end
 
-	def max_score
+	def course_best_score
 		score_counter.max
 	end
 
-	def min_score
+	def course_worst_score
 		score_counter.min
+	end
+
+	def course_average_score
+		score_counter.inject{ |sum, n| sum + n}.to_f / score_counter.size
 	end
 end

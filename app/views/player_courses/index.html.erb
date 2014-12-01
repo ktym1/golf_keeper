@@ -17,13 +17,14 @@
 		<% @course.each do |course| %>
 			<tr>
 				<th>Best Score </th>
-					<td> <%= course.max_score %> </td>
+					<td> <%= course.course_best_score %> </td>
+					<td> <%= course.course_average_score %> </td>
 			</tr>
 		<% end %>
 		<% @course.each do |course| %>
 			<tr>
 				<th> Worst Score </th>
-					<td> <%= course.min_score %> </td>
+					<td> <%= course.course_worst_score %> </td>
 			</tr>
 		<% end %>
 	</tbody>
