@@ -21,19 +21,19 @@ class Course < ActiveRecord::Base
 		end 
   end 
 
-	def top_score_overall
+	def score_counter
 		score = []
 		self.rounds.each do |round|
 			score << round.total
 		end
-		return score.max
+		return score
 	end
 
-	def worst_score_overall
-		score = []
-		self.rounds.each do |round|
-			score << round.total
-		end
-		return score.min
+	def max_score
+		score_counter.max
+	end
+
+	def min_score
+		score_counter.min
 	end
 end
