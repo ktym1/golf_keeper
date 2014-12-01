@@ -19,15 +19,21 @@ class Course < ActiveRecord::Base
 		hole = Hole.where(course_id: self.id, hole_number: number, gender: "f").first_or_initialize
 		hole.save(validate: false)
 		end 
-  end
+  end 
 
-	def tee_yards
-		yardages = self.yardages.where(hole_id: 1, tee_id: 1)
-			binding.pry
-			if yardages
-				yardages.yards
-			else
-				puts "*****"
-			end
-	end 
+	def top_score_overall
+		score = []
+		self.rounds.each do |round|
+			score << round.total
+		end
+		return score.max
+	end
+
+	def worst_score_overall
+		score = []
+		self.rounds.each do |round|
+			score << round.total
+		end
+		return score.min
+	end
 end

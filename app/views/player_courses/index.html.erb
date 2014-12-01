@@ -1,28 +1,30 @@
 <p> Course Stats </p>
 
-
-
-
-
 <table>
 	<thead>
 		<% @course.each do |course| %>
-		<tr>	
-			<th width="150"> <%= course.name %></th>
-			<th width="50"> Overall </th>
-			<th width="50"> Average </th>
-			<th width="50"> Your Overall </th>
-			<th width="50"> Your Average </th>
-			<th width="50"> Your Rank </th>
-		</tr>
+			<tr>	
+				<th width="150"> <%= course.name %></th>
+				<th width="50"> Overall </th>
+				<th width="50"> Average </th>
+				<th width="50"> Your Overall </th>
+				<th width="50"> Your Average </th>
+				<th width="50"> Your Rank </th>
+			</tr>
 		<% end %>
 	</thead>
 	<tbody>
-		<tr>
-			<th>Best Score </th>
-		</tr>
-		<tr>
-			<th> Worst Score </th>
-		</tr>
+		<% @course.each do |course| %>
+			<tr>
+				<th>Best Score </th>
+					<td> <%= course.top_score_overall %> </td>
+			</tr>
+		<% end %>
+		<% @course.each do |course| %>
+			<tr>
+				<th> Worst Score </th>
+					<td> <%= course.worst_score_overall %> </td>
+			</tr>
+		<% end %>
 	</tbody>
 </table>

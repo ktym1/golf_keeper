@@ -21,8 +21,4 @@ class Score < ActiveRecord::Base
 			0
 		end
 	end
-
-	# def self.best_score_total
-	# 	Score.where("course_id = ?", x; AND "score = ?", MAX(self.score))
-	# end
 end
