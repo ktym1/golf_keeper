@@ -15,7 +15,11 @@ class Score < ActiveRecord::Base
 	end
 
 	def score_differential
-		score - hole.par if !score.nil?
+		if hole.par && !score.nil?
+			score - hole.par
+		else
+			0
+		end
 	end
 
 	# def self.best_score_total

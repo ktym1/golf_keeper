@@ -24,7 +24,7 @@ class Round < ActiveRecord::Base
 	def par
 		par = 0
 		holes.each do |hole|
-			par += hole.par
+			par += hole.par || 0
 		end
 		return par
 	end
@@ -61,7 +61,8 @@ class Round < ActiveRecord::Base
 	def score_differential_sum
 		diff = []
 		scores.each do |score_model|
-		diff <<	score_model.score_differential unless score_model.score.nil?	
+			tmp = score_model.score.nil? ? 0 : score_model.score_differential
+			diff << tmp
 		end
 		return diff.sum
 	end
