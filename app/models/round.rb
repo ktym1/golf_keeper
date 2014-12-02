@@ -68,10 +68,10 @@ class Round < ActiveRecord::Base
 	end
 
 	def self.nine_hole
-		where("round_length = ?". 9)
+		where("round_length = ?", 9)
 	end
 
 	def self.eighteen_hole
-		where("round_length = ?". 18)
+		where("round_length = ?", 18)
 	end
 end

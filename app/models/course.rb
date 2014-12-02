@@ -24,7 +24,8 @@ class Course < ActiveRecord::Base
 	def score_counter
 		score = []
 		self.rounds.each do |round|
-			score << round.total
+			tmp = round.total.nil? ? 0 : round.total
+			score << tmp
 		end
 		return score
 	end
@@ -39,5 +40,9 @@ class Course < ActiveRecord::Base
 
 	def course_average_score
 		score_counter.inject{ |sum, n| sum + n}.to_f / score_counter.size
+	end
+
+	def player_best_score
+		#how to access current user?
 	end
 end
