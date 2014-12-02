@@ -1,8 +1,8 @@
 <p> Course Stats </p>
 
+<% @course.each do |course| %>
 <table>
-	<thead>
-		<% @course.each do |course| %>
+	<thead>		
 			<tr>	
 				<th width="150"> <%= course.name %></th>
 				<th width="50"> Overall </th>
@@ -27,6 +27,7 @@
 				<th> Worst Score </th>
 					<td> <%= course.course_worst_score %> </td>
 			</tr>
-		<% end %>
 	</tbody>
 </table>
+
+<% end %>

@@ -32,10 +32,9 @@ class HolesController < ApplicationController
 	def update
 		@course = Course.find(params[:course_id])
 		@hole = Hole.find(params[:id])
-
 		respond_to do |format|
 		    if @hole.update_attributes(hole_params)
-		      format.html { redirect_to(@course, :notice => 'User was successfully updated.') }
+		      format.html { redirect_to(@course, :notice => 'Yards was successfully updated.') }
 		      format.json { respond_with_bip(@hole) }
 		    else
 		      format.html { render :action => "edit" }
