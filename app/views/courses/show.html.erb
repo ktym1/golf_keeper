@@ -14,25 +14,12 @@
 		<tr>
 			<td> Par </td>
 			<% @course.holes.male.each do |hole| %>
-				<td>
-					<%#  if hole.par %>
-						<%#= link_to hole.par, edit_course_hole_path(@course, hole) %>
-						
-						<%= best_in_place hole, :par, :path => course_hole_path(@course, hole), :type => :input %>
-					<%# else %>
-						<%#= link_to "Add Hole Info", edit_course_hole_path(@course, hole)%>  
-					<%# end %>
-				</td>
+				<td> <%= best_in_place hole, :par, :path => course_hole_path(@course, hole), :type => :input %> </td>
 			<% end %>
 		<tr>
 			<td> Handicap: Men </td>
 			<% @course.holes.male.each do |hole| %>
-				<td>
-					<%= best_in_place hole, :handicap_rating, :path => course_hole_path(@course, hole), :type => :input %>
-					<%#  if hole.handicap_rating %>
-							<%#= link_to hole.handicap_rating, edit_course_hole_path(@course, hole) %>
-					<%# end %>
-				</td>
+				<td> <%= best_in_place hole, :handicap_rating, :path => course_hole_path(@course, hole), :type => :input %> </td>
 			<% end %>
 		</tr>
 			<% @course.tees.each do |tee| %>
@@ -40,7 +27,11 @@
 			<td> Tee: <%= tee.colour %> </td>
 				<% @course.holes.male.each do |hole| %>
 					<% yardage = hole.yardages.where("tee_id = ?", tee.id).first %>
-					<td> <%= yardage.blank? ? "n/a" : yardage.yards %> </td>
+					<% if yardage.blank? %> 
+						<td> <%= link_to "-", edit_course_hole_path(@course, hole) %> </td>
+					<% else  %>
+						<td> <%= link_to yardage.yards, edit_course_hole_path(@course, hole) %> </td>
+					<% end %>
 				<% end %>
 			<% end %>
 		</tr>
@@ -60,32 +51,25 @@
 		<tr>
 			<td> Par </td>
 			<% @course.holes.female.each do |hole| %>
-				<td>
-					<%  if hole.par %>
-						<%= link_to hole.par, edit_course_hole_path(@course, hole) %>
-					<% else %>
-						<%= link_to "Add Hole Info", edit_course_hole_path(@course, hole)%>  
-					<% end %>
-				</td>
+				<td> <%= best_in_place hole, :par, :path => course_hole_path(@course, hole), :type => :input %> </td>
 			<% end %>
 		<tr>
 			<td> Handicap: Women </td>
 			<% @course.holes.female.each do |hole| %>
-				<td>
-					<%  if hole.handicap_rating %>
-							<%= link_to hole.handicap_rating, edit_course_hole_path(@course, hole) %>
-					<% end %>
-				</td>
+				<td> <%= best_in_place hole, :handicap_rating, :path => course_hole_path(@course, hole), :type => :input %> </td>
 			<% end %>
 		</tr>
 		<% @course.tees.each do |tee| %>
 		<tr>
 			<td> Tee: <%= tee.colour %> </td>
-				<% @course.holes.female.each do |hole| %>
+				<% @course.holes.male.each do |hole| %>
 					<% yardage = hole.yardages.where("tee_id = ?", tee.id).first %>
-					<td> <%= yardage.blank? ? "n/a" : yardage.yards %> </td>
+					<% if yardage.blank? %> 
+						<td> <%= link_to "-", edit_course_hole_path(@course, hole) %> </td>
+					<% else  %>
+						<td> <%= link_to yardage.yards, edit_course_hole_path(@course, hole) %> </td>
+					<% end %>
 				<% end %>
 		<% end %>
-		</tr>
 	</tbody>
 </table>
