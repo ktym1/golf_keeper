@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'player_courses/index'
+  get 'player_courses/index' => "player_courses#index"
 
-  get 'player_courses/show'
+  get 'player_courses/:course_id' => "player_courses#show"
 
   resources :home, only: [:index]
   root :to => "home#index"
