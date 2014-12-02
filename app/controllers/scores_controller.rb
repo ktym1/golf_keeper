@@ -23,10 +23,14 @@ class ScoresController < ApplicationController
 	end
 
 	def update
-		if @score.update(score_params)
-			redirect_to player_round_url(@score.player, @score.round)
-		else
-			render :edit
+		respond_to do |format|
+		    if @score.update_attributes(score_params)
+		      format.html { redirect_to(@round, :notice => 'Score was successfully updated.') }
+		      format.json { respond_with_bip(@score) }
+		    else
+		      format.html { render :action => "edit" }
+		      format.json { respond_with_bip(@score) }
+		    end
 		end
 	end
 

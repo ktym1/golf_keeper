@@ -1,16 +1,4 @@
-<p>Welcome to your new game </p>
-
-<!-- Show the scorecard
-
-Course
-Holes 1 - 18
-Yardages 1 - 18
-Par 1 - 18
-Men's Handicap 1 - 18
-Women's Handicap 1 - 18
-
- -->
-<%= @round.course.name %>
+<h4><%= @round.course.name %> scorecard </h4>
 
 <table>
   <thead>
@@ -25,13 +13,12 @@ Women's Handicap 1 - 18
     <tr>
       <td>Score</td>
         <% @round.scores.each do |score| %>
-            <td>
-              <% if score.score %>
-                <%= score.score %> 
-              <% else %>
-                <p> <%= link_to "Add Score", edit_player_round_score_path(@round.player, @round, score) %></p>
-              <% end %>
-            </td>
+              <%# if score.score %>
+                <%#= score.score %> 
+              <%# else %>
+                <%#= link_to "Add Score", edit_player_round_score_path(@round.player, @round, score) %>
+              <%# end %>
+              <td> <%= best_in_place score, :score, :path => player_round_score_path(@round.player, @round, score), :type => :input %> </td>
         <% end %> 
     </tr>
     
