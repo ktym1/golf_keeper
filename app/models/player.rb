@@ -26,6 +26,19 @@ class Player < ActiveRecord::Base
 		Digest::SHA1.hexdigest(token.to_s)
 	end
 
+	#[{:score_id => 1, :round_id => 1, :score => 75}]
+	def best_scores
+		scores = []
+		rounds.each do |round|
+			score = {
+			:course_id => round.course.id,
+			:round_id => round.id,
+			:score => round.total
+			}
+			scores << score
+		end
+	end
+
 	private
 
 		def create_remember_token
