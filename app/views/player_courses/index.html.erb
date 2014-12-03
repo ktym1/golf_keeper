@@ -1,6 +1,7 @@
 <p> Course Stats </p>
 
 <% @course.each do |course| %>
+
 <table>
 	<thead>		
 			<tr>	
@@ -11,18 +12,18 @@
 				<th width="50"> Your Average </th>
 				<th width="50"> Your Rank </th>
 			</tr>
-		<% end %>
+		
 	</thead>
 	<tbody>
-		<% @course.each do |course| %>
+		
 			<tr>
 				<th>Best Score </th>
 					<td> <%= course.course_best_score %> </td>
 					<td> <%= course.course_average_score %> </td>
 					<td> <%#= course.player_best_score %> </td>
 			</tr>
-		<% end %>
-		<% @course.each do |course| %>
+		
+		
 			<tr>
 				<th> Worst Score </th>
 					<td> <%= course.course_worst_score %> </td>
