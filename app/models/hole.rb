@@ -27,5 +27,4 @@ class Hole < ActiveRecord::Base
 	def self.female
 		where("gender = ?", "f")
 	end
-
 end

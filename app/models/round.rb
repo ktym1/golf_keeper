@@ -74,4 +74,11 @@ class Round < ActiveRecord::Base
 	def self.eighteen_hole
 		where("round_length = ?", 18)
 	end
+
+	def round_complete
+		eighteen = Hole.where("hole_number = ?", 18)
+		self.holes.send(eighteen).each do |hole|
+			print "Round Complete" unless hole.scores.score.nil?
+		end
+	end
 end

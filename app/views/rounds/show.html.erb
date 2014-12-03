@@ -13,12 +13,7 @@
     <tr>
       <td>Score</td>
         <% @round.scores.each do |score| %>
-              <%# if score.score %>
-                <%#= score.score %> 
-              <%# else %>
-                <%#= link_to "Add Score", edit_player_round_score_path(@round.player, @round, score) %>
-              <%# end %>
-              <td> <%= best_in_place score, :score, :path => player_round_score_path(@round.player, @round, score), :type => :input %> </td>
+          <td> <%= best_in_place score, :score, :path => player_round_score_path(@round.player, @round, score), :type => :input %> </td>
         <% end %> 
     </tr>
     
@@ -43,3 +38,4 @@
     </tr>
   </tbody>
 </table>
+<%= link_to "Back to Profile", player_path(current_user) %>
