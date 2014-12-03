@@ -31,11 +31,11 @@ class Course < ActiveRecord::Base
 	end
 
 	def course_best_score
-		score_counter.max
+		score_counter.min
 	end
 
 	def course_worst_score
-		score_counter.min
+		score_counter.max
 	end
 
 	def course_average_score
