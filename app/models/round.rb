@@ -76,9 +76,12 @@ class Round < ActiveRecord::Base
 	end
 
 	def round_complete
-		eighteen = Hole.where("hole_number = ?", 18)
-		self.holes.send(eighteen).each do |hole|
-			print "Round Complete" unless hole.scores.score.nil?
-		end
+		#i want this round's, hole_number 18
+		#i want the scores for hole_number 18
+		#i want to know when score is not empty
+
+		hole_eighteen = self.holes.where("hole_number = ?", 18).first
+		score_on_eighteen = Score.where("hole_id = ?", hole_eighteen.id)
+		puts "Round complete" unless score_on_eighteen.blank? 
 	end
 end
