@@ -27,9 +27,9 @@ class Player < ActiveRecord::Base
 	end
 
 	#[{:score_id => 1, :round_id => 1, :score => 75}]
-	def best_scores
+	def player_round_info
 		scores = []
-		rounds.each do |round|
+		self.rounds.each do |round|
 			score = {
 			:course_id => round.course.id,
 			:round_id => round.id,
@@ -37,6 +37,10 @@ class Player < ActiveRecord::Base
 			}
 			scores << score
 		end
+	end
+
+	def best_scores
+		player_round_info
 	end
 
 	private
