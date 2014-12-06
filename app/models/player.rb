@@ -31,15 +31,16 @@ class Player < ActiveRecord::Base
 		scores = []
 		self.rounds.each do |round|
 			score = {}
-			score[:course_id] = round.course.id
+			score[:course_id] = round.course_id
 			score[:round_id] = round.id
 			score[:score] = round.total
 			scores << score
-		end					
+		end	
+		return scores					
 	end
 
 	def best_score_for_course(course_id)
-		scores_for_course = best_scores.search { |h| h[:course_id] == course_id}
+		scores_for_course = best_scores.select { |h| h[:course_id] == course_id}
 		max_score_hash = scores_for_course.min_by{|h| h[:score]}
 		max_score = max_score_hash[:score]
 	end
