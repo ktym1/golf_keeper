@@ -75,13 +75,9 @@ class Round < ActiveRecord::Base
 		where("round_length = ?", 18)
 	end
 
-	def round_complete
-		#i want this round's, hole_number 18
-		#i want the scores for hole_number 18
-		#i want to know when score is not empty
-
-		hole_eighteen = self.holes.where("hole_number = ?", 18).first
-		score_on_eighteen = Score.where("hole_id = ?", hole_eighteen.id)
-		puts "Round complete" unless score_on_eighteen.blank? 
+	def complete?
+		round_length == self.scores.where("score is not null").count
 	end
+
+
 end

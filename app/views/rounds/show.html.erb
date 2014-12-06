@@ -1,5 +1,9 @@
 <h4><%= @round.course.name %> scorecard </h4>
 
+<% if @round.complete? %>
+  <%= "Round completed!" %>
+<% end %>
+
 <table>
   <thead>
     <tr>
