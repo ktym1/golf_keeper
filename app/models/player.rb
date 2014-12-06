@@ -41,7 +41,13 @@ class Player < ActiveRecord::Base
 
 	def best_score_for_course(course_id)
 		scores_for_course = best_scores.select { |h| h[:course_id] == course_id}
-		max_score_hash = scores_for_course.min_by{|h| h[:score]}
+		min_score_hash = scores_for_course.min_by{|h| h[:score]}
+		min_score = min_score_hash[:score]
+	end
+
+	def worst_score_for_course(course_id)
+		scores_for_course = best_scores.select { |h| h[:course_id] == course_id}
+		max_score_hash = scores_for_course.max_by{|h| h[:score]}
 		max_score = max_score_hash[:score]
 	end
 
