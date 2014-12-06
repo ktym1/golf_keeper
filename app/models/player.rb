@@ -26,8 +26,8 @@ class Player < ActiveRecord::Base
 		Digest::SHA1.hexdigest(token.to_s)
 	end
 
-	#[{:score_id => 1, :round_id => 1, :score => 75}]
-	def player_round_info
+	#[{:course_id => 1, :round_id => 1, :score => 75}]
+	def best_scoresb
 		scores = []
 		self.rounds.each do |round|
 			score = {
@@ -39,8 +39,10 @@ class Player < ActiveRecord::Base
 		end
 	end
 
-	def best_scores
-		player_round_info
+	def best_score_for_course(course_id)
+		scores_for_course = best_scores.select { |h| h[:course_id] == course_id}
+		max_score_hash = scores_for_course.max_by{|h| h[:score]}
+		max_score = max_score_hash[:score]
 	end
 
 	private
