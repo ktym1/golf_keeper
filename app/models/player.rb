@@ -36,31 +36,29 @@ class Player < ActiveRecord::Base
 			score[:score] = round.total
 			scores << score
 		end	
-		return scores					
+		return scores
 	end
 
-	def get_course(course_id)
-		run_callbacks :get_course do
-			best_scores.select {|h| h[:course_id] == course_id}
-		end
-	end
+	# def get_course(course_id)
+	# 	best_scores.select {|h| h[:course_id] == course_id}
+	# end
 	
 	def best_score_for_player(course_id)
-		course = get_course(course_id)
+		course = best_scores.select {|h| h[:course_id] == course_id}
 		min_score_hash = course.min_by {|h| h[:score]}
 		min_score = min_score_hash[:score]
 	end
 
 	def worst_score_for_player(course_id)
-		course = get_course(course_id)
+		course = best_scores.select {|h| h[:course_id] == course_id}
 		max_score_hash = course.max_by {|h| h[:score]}
 		max_score = max_score_hash[:score]
 	end
 
 	def average_score_for_player(course_id)
-		course = get_course(course_id)
+		course = best_scores.select {|h| h[:course_id] == course_id}
 		all_scores_array = course.map {|h| h[:score]}
-		average_score = all_scores_array.inject{|sum, n| sum + n}.to_f / all_scores_array.size
+		average_score = all_scores_array.inject{|sum, n| sum + n}.to_i / all_scores_array.size
 	end
 
 	private

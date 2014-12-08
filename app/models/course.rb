@@ -39,6 +39,26 @@ class Course < ActiveRecord::Base
 	end
 
 	def course_average_score
-		score_counter.inject{ |sum, n| sum + n}.to_f / score_counter.size
+		score_counter.inject{ |sum, n| sum + n}.to_i / score_counter.size
+	end
+
+	def course_scores
+		scores = []
+		self.rounds.each do |round|
+			score = {}
+			score[:player_id] = round.player_id
+			score[:course_id] = self.id
+			score[:round_id] = round.id
+			score[:score] = round.total
+			scores << score
+		end	
+		return scores
+	end
+
+	def player_rank(current_user)
+		ascending_scores = course_scores.sort_by {|h| h[:score]}
+		# ascending_scores.each do |key, value|
+		# end
+		 ascending_scores.detect {|h| h[:player_id] == current_user.id}
 	end
 end
