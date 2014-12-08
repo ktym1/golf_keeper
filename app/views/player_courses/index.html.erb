@@ -20,7 +20,8 @@
 				<th>Best Score </th>
 					<td> <%= course.course_best_score %> </td>
 					<td> <%= course.course_average_score %> </td>	
-					<td> <%= current_user.best_score_for_course(course.id) %> </td>
+					<td> <%= current_user.best_score_for_player(course.id) %> </td>
+					<td> <%= current_user.average_score_for_player(course.id) %></td>
 			</tr>
 		
 		
@@ -28,7 +29,7 @@
 				<th> Worst Score </th>
 					<td> <%= course.course_worst_score %> </td>
 					<td></td>
-					<td> <%= current_user.worst_score_for_course(course.id)  %> </td>
+					<td> <%= current_user.worst_score_for_player(course.id)  %> </td>
 			</tr>
 	</tbody>
 </table>
