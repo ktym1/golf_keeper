@@ -7,7 +7,8 @@ class Round < ActiveRecord::Base
 	belongs_to :tee
 	has_many :scores, dependent: :destroy
 	has_many :holes, through: :scores
-	
+	has_many :player_matches
+		
 	validates :course_id, presence: true, numericality: {only_integer: true}
 	validates :round_length, presence: true, numericality: {only_integer: true}
 	validates :player_id, presence: true, numericality: {only_integer: true}
