@@ -1,10 +1,9 @@
 class CreateMatches < ActiveRecord::Migration
   def change
     create_table :matches do |t|
-      t.string :course_id
-      t.string :integer,
-      t.string :tee_id
-      t.string :integer,
+      t.integer :course_id
+      t.integer :player_id
+      t.integer :tee_id
       t.datetime :end_date
 
       t.timestamps
