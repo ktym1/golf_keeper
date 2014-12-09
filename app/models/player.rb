@@ -1,6 +1,10 @@
 class Player < ActiveRecord::Base
 	has_many :rounds
 	has_many :courses, through: :rounds
+	has_many :player_matches_as_player_1, :class_name => 'Player Match', :foreign_key => 'player_1_id'
+	has_many :player_matches_as_player_2, :class_name => 'Player Match', :foreign_key => 'player_2_id'
+	has_many :player_matches_as_player_3, :class_name => 'Player Match', :foreign_key => 'player_3_id'
+	has_many :player_matches_as_player_4, :class_name => 'Player Match', :foreign_key => 'player_4_id'
 
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
