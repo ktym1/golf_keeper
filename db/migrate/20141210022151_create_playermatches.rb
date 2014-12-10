@@ -1,8 +1,8 @@
-class CreatePlayerMatches < ActiveRecord::Migration
+class CreatePlayermatches < ActiveRecord::Migration
   def change
-    create_table :player_matches do |t|
-      t.integer :match_id
+    create_table :playermatches do |t|
       t.integer :round_id
+      t.integer :match_id
       t.integer :player_1
       t.integer :player_2
       t.integer :player_3
