@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210162312) do
+ActiveRecord::Schema.define(version: 20141210222027) do
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -42,10 +42,8 @@ ActiveRecord::Schema.define(version: 20141210162312) do
   create_table "playermatches", force: true do |t|
     t.integer  "round_id"
     t.integer  "match_id"
-    t.integer  "player1"
-    t.integer  "player2"
-    t.integer  "player3"
-    t.integer  "player4"
+    t.integer  "playerinitiate"
+    t.integer  "playerjoin"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

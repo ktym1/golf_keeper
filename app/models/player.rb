@@ -1,11 +1,9 @@
 class Player < ActiveRecord::Base
 	has_many :rounds
 	has_many :courses, through: :rounds
-	has_many :playermatches, class_name: 'Playermatch', foreign_key: 'player1_id'
-	has_many :playermatches, class_name: 'Playermatch', foreign_key: 'player2_id'
-	has_many :playermatches, class_name: 'Playermatch', foreign_key: 'player3_id'
-	has_many :playermatches, class_name: 'Playermatch', foreign_key: 'player4_id'
-
+	has_many :matches, through: :playermatches
+	has_many :playerjoin, through: :playermatches
+	has_many :playerinitiate, through: :playermatches
 
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
