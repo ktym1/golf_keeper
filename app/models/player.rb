@@ -1,10 +1,7 @@
 class Player < ActiveRecord::Base
 	has_many :rounds
 	has_many :courses, through: :rounds
-	has_many :matches, through: :playermatches
-	has_many :playerjoin, through: :playermatches
-	has_many :playerinitiate, through: :playermatches
-
+	
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
 
@@ -42,10 +39,6 @@ class Player < ActiveRecord::Base
 		return scores
 	end
 
-	# def get_course(course_id)
-	# 	best_scores.select {|h| h[:course_id] == course_id}
-	# end
-	
 	def best_score_for_player(course_id)
 		course = best_scores.select {|h| h[:course_id] == course_id}
 		min_score_hash = course.min_by {|h| h[:score]}
