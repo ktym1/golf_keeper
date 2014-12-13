@@ -1,5 +1,5 @@
 class Match < ActiveRecord::Base
-	after_save: :add_player_to_playermatch
+	after_save: :add_player_to_player_match
 	
 	belongs_to :creating_player, class_name: "Player", foreign_key: :player_id
 	has_many :player_matches
@@ -7,8 +7,8 @@ class Match < ActiveRecord::Base
 
 	validate :maximum_players
 
-	def add_player_to_playermatch
-		self.playermatches.create(player_id: self.player.id, match_id: self.id)
+	def add_player_to_player_match
+		self.player_matches.create(player_id: self.player.id, match_id: self.id)
 	end
 
 	def maximum_players
