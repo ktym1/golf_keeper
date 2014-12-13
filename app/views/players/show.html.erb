@@ -36,19 +36,12 @@
 <table>
   <thead>
      <th width="150"> Stats Comparison </th> 
-    <tr>
-      <th width="50"><%= link_to "All courses", player_courses_index_path %></th>
   </thead>
   <tbody>
     <tr>
-      <% @player.courses.each do |course| %>
-      <td>
-          <%= link_to course.name %>
-      </td>
-      <% end %>
-      
+      <th width="50"><%= link_to "See How You Rank", player_courses_index_path %></th>
     </tr>
-  </tbody>
+ </tbody>
 </table>
 
-<h4> <%= link_to "Start a new round", new_player_round_path(@player) %> </h4>
+<h5> <%= link_to "Start a new round", new_player_round_path(@player) %> </h5>
