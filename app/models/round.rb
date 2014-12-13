@@ -46,12 +46,11 @@ class Round < ActiveRecord::Base
 	end
 
 	def time_update
-	#check this Round's (self) score updated_at attribute; puts this attribute if more recent than round's updated_at
-		# self.scores.each do |score|
-		# 	if score.updated_at > self.updated_at
-		# 		puts score.updated_at
-		# 	end
-		# end
+		dates = []
+		self.scores.order("updated_at DESC").each do |score|
+			dates << score	
+		end
+		return dates
 	end
 
 	def self.ordered_by_last_updated_score
