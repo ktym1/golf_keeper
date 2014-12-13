@@ -1,4 +1,4 @@
-class Playermatch < ActiveRecord::Base
+class PlayerMatch < ActiveRecord::Base
 	belongs_to :round
 	belongs_to :match
 	belongs_to :player

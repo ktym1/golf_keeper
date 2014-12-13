@@ -2,8 +2,8 @@ class Match < ActiveRecord::Base
 	after_save: :add_player_to_playermatch
 	
 	belongs_to :creating_player, class_name: "Player", foreign_key: :player_id
-	has_many :playermatches
-	has_many :joined_player, through: :playermatches, source: :player
+	has_many :player_matches
+	has_many :joined_player, through: :player_matches, source: :player
 
 	validate :maximum_players
 
