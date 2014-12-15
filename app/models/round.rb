@@ -45,12 +45,19 @@ class Round < ActiveRecord::Base
 		end
 	end
 
+	def score_dates
+	 	dates = []
+	 	self.scores.order("updated_at DESC").each do |score|
+	 		date = {}
+	 		date[:updated_at] = score.updated_at
+	 		dates << date
+	 	end
+	 	return dates
+	end
+
 	def time_update
-		dates = []
-		self.scores.order("updated_at DESC").each do |score|
-			dates << score	
-		end
-		return dates
+		h = score_dates.first
+		h[:updated_at]
 	end
 
 	def self.ordered_by_last_updated_score
