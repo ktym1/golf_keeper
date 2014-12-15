@@ -1,5 +1,5 @@
 class Match < ActiveRecord::Base
-	after_save: :add_player_to_player_match
+	after_save :add_player_to_player_match
 	
 	belongs_to :creating_player, class_name: "Player", foreign_key: :player_id
 	has_many :player_matches
