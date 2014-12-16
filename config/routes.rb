@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   end
   
   resources :players do
+    resources :matches 
+  end
+
+  resources :players do
     resources :rounds do
       resources :scores
     end
