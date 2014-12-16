@@ -44,19 +44,19 @@ class Player < ActiveRecord::Base
 	def best_score_for_player(course_id)
 		course = best_scores.select {|h| h[:course_id] == course_id}
 		min_score_hash = course.min_by {|h| h[:score]}
-		min_score = min_score_hash[:score]
+		min_score = min_score_hash[:score] unless min_score_hash.nil? || 0
 	end
 
 	def worst_score_for_player(course_id)
 		course = best_scores.select {|h| h[:course_id] == course_id}
 		max_score_hash = course.max_by {|h| h[:score]}
-		max_score = max_score_hash[:score]
+		max_score = max_score_hash[:score] unless max_score_hash.nil? || 0
 	end
 
 	def average_score_for_player(course_id)
 		course = best_scores.select {|h| h[:course_id] == course_id}
 		all_scores_array = course.map {|h| h[:score]}
-		average_score = all_scores_array.inject{|sum, n| sum + n}.to_i / all_scores_array.size
+		average_score = all_scores_array.inject{|sum, n| sum + n}.to_i / (all_scores_array.size.nonzero? || 1)
 	end
 
 	private
