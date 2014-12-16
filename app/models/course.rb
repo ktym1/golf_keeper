@@ -39,7 +39,7 @@ class Course < ActiveRecord::Base
 	end
 
 	def course_average_score
-		score_counter.inject{ |sum, n| sum + n}.to_i / score_counter.size
+		score_counter.inject{ |sum, n| sum + n}.to_i / (score_counter.size.nonzero? || 1)
 	end
 
 	def course_scores
