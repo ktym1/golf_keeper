@@ -57,8 +57,6 @@ class Course < ActiveRecord::Base
 
 	def player_rank(current_user)
 		ascending_scores = course_scores.sort_by {|h| h[:score]}
-		# ascending_scores.each do |key, value|
-		# end
-		 ascending_scores.detect {|h| h[:player_id] == current_user.id}
+		# ascending_scores.detect {|h| h[:player_id] == current_user.id}
 	end
 end
