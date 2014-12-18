@@ -1,0 +1,15 @@
+<%= form_for [player, match] do |f| %>
+	<%= f.label :course %>
+	<%= f.collection_select(:course_id, @courses, :id, :name) %>
+
+	<%= f.label :tee %>
+	<%= f.collection_select(:tee_id, @tees, :id, :colour) %> 
+
+	<%= f.label :expiration_date %>
+	<%= f.datetime_select(:end_date, default: 2.days.from_now, ampm: true) %>
+
+
+	<%= f.hidden_field :player_id, :value => player.id %>
+
+	<%= f.submit %> 
+<% end %>
