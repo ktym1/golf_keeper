@@ -1,7 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :playermatch do
+  factory :player_match do
     round_id 1
     match_id 1
     player_1 1
