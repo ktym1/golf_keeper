@@ -4,7 +4,7 @@ class Match < ActiveRecord::Base
 	has_many :joined_players, through: :player_matches, source: :player
 
 	after_save :add_player_to_player_match
-
+	before_save :set_duration
 	# validate :maximum_players
 
 	def add_player_to_player_match
@@ -15,5 +15,13 @@ class Match < ActiveRecord::Base
 		if joined_players > 4
 			errors.add(:joined_players, "Maximum 4 players")
 		end
+	end
+	
+	def set_duration
+	  self.duration = @hours * 60 + @minutes
+	end
+
+	def hours
+	  self.duration / 60;
 	end
 end
