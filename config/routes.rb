@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   
   resources :players do
     resources :matches 
+      resource :player_matches, only: [:create, :update]
   end
 
   resources :players do
