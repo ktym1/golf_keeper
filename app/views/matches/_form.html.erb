@@ -6,7 +6,7 @@
 	<%= f.collection_select(:tee_id, @tees, :id, :colour) %> 
 
 	<%= f.label :end_date, "Expiration Date: Two Weeks Max" %>
-	<%= f.month_field :end_date, max: 14.days.from_now %>	
+	<%= f.date_field :end_date, max: 14.days.from_now, min: Date.today %>	
 
 	<%= f.hidden_field :player_id, :value => player.id %>
 

@@ -4,7 +4,6 @@ class Match < ActiveRecord::Base
 	has_many :joined_players, through: :player_matches, source: :player
 
 	after_save :add_player_to_player_match
-	before_save :set_duration
 	# validate :maximum_players
 
 	def add_player_to_player_match
