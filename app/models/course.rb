@@ -7,6 +7,7 @@ class Course < ActiveRecord::Base
 	has_many :players, through: :rounds
 	has_many :yardages, through: :tees
 	accepts_nested_attributes_for :tees, :reject_if => :all_blank, :allow_destroy => true
+	has_many :matches
 
 	validates :name, presence: true, uniqueness: true
 	validates :course_length, presence: true, inclusion: { in: [9, 18],
