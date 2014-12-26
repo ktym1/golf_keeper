@@ -5,13 +5,11 @@
 	<%= f.label :tee %>
 	<%= f.collection_select(:tee_id, @tees, :id, :colour) %> 
 
-	<%= f.label :expiration_date %>
-	<%= f.input :hours, :as => :select, :collection => (0..4) %>
-
-	<!-- datetime_select(:end_date, default: 2.days.from_now, ampm: true) %> -->
-
+	<%= f.label :end_date, "Expiration Date: Two Weeks Max" %>
+	<%= f.month_field :end_date, max: 14.days.from_now %>	
 
 	<%= f.hidden_field :player_id, :value => player.id %>
 
 	<%= f.submit %> 
 <% end %>
+

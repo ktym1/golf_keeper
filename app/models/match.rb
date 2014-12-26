@@ -16,12 +16,4 @@ class Match < ActiveRecord::Base
 			errors.add(:joined_players, "Maximum 4 players")
 		end
 	end
-	
-	def set_duration
-	  self.duration = @hours * 60 + @minutes
-	end
-
-	def hours
-	  self.duration / 60;
-	end
 end
