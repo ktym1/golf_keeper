@@ -41,6 +41,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'foundation-rails'
 gem 'cocoon'
 gem 'best_in_place'
+gem 'rails4-autocomplete'
+gem "jquery-ui-rails"
 
 group :development do
 	gem 'pry'
