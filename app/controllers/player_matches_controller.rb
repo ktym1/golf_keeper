@@ -1,7 +1,10 @@
 class PlayerMatchesController < ApplicationController
-	
+	autocomplete :player, :username
+
 	def new
-		
+		@players = Player.all
+		@match = Match.find(params[:match_id])
+		@player_match = PlayerMatch.new
 	end
 
 	def create

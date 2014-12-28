@@ -1,5 +1,5 @@
 class MatchesController < ApplicationController
-autocomplete :player, :username
+
 def new
 	@player = Player.find(params[:player_id])
 	@match = Match.new
