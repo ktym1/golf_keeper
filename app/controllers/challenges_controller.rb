@@ -1,13 +1,6 @@
 class ChallengesController < ApplicationController
 	autocomplete :player, :username
 
-	def new
-		@players = Player.all
-		@player = Player.find(params[:player_id])
-		@match = Match.find(params[:match_id])
-		@challenge = Challenge.new
-	end
-
 	def create
 		@player = Player.find(params[:player_id])
 		@match = Match.find(params[:match_id])

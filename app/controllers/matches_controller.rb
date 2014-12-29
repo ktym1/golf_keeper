@@ -20,6 +20,8 @@ end
 def show
 	@match = Match.find(params[:id])
 	@player = Player.find(params[:player_id])
+	@players = Player.all
+	@challenge = Challenge.new
 end
 
 	private
