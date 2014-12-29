@@ -9,7 +9,7 @@ end
 
 def create
 	@player = Player.find(params[:player_id])
-	@match = Match.new(match_params)
+	@match = @player.created_matches.create(match_params)
 	if @match.save
 		redirect_to player_match_url(@player, @match)
 	else

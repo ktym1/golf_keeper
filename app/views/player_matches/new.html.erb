@@ -1,5 +1,8 @@
 <p> Add up to 4 players to your challenge </p>
-<%= form_for [@player, @player_match] do |f| %>
+<%= form_for [@player, @match, @player_match] do |f| %>
+
+<%= f.label :player  %>
+<%= f.collection_select(:player_id, @players, :id, :username) %> 
 
 <%= f.label :player  %>
 <%= f.collection_select(:player_id, @players, :id, :username) %> 

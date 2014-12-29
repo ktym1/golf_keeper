@@ -8,7 +8,6 @@ class HolesController < ApplicationController
 
 	def create
 		@course = Course.find(params[:course_id])
-
 		@hole = @course.holes.create(hole_params)
 		if @holes.save
 			redirect_to course_path(@course), notice: "Hole created successfully"
