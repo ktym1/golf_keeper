@@ -2,7 +2,7 @@ class Player < ActiveRecord::Base
 	has_many :rounds
 	has_many :courses, through: :rounds
 	has_many :created_matches, class_name: "Match"
-	has_many :player_matches
+	has_many :challenges
 
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token

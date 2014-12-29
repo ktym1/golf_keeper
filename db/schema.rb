@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141226192018) do
+ActiveRecord::Schema.define(version: 20141229180539) do
+
+  create_table "challenges", force: true do |t|
+    t.integer  "round_id"
+    t.integer  "match_id"
+    t.integer  "player_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -35,14 +43,6 @@ ActiveRecord::Schema.define(version: 20141226192018) do
     t.integer  "player_id"
     t.integer  "tee_id"
     t.date     "end_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "player_matches", force: true do |t|
-    t.integer  "round_id"
-    t.integer  "match_id"
-    t.integer  "player_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

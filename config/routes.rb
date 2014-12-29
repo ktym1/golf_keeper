@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   
   resources :players do
     resources :matches do
-      resources :player_matches 
+      resources :challenges
          # get :autocomplete_player_username, :on => :collection
     end
   end
