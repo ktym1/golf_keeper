@@ -5,12 +5,8 @@
 	<%= f.label :tee %>
 	<%= f.collection_select(:tee_id, @tees, :id, :colour) %> 
 
-	<%= f.label :round_length, 9 %>
-	<%= f.radio_button(:round_length, 9)%></br>
-
 	<%= f.label :round_length, 18 %>
 	<%= f.radio_button(:round_length, 18)%></br>
-
 
 	<%= f.label :start_hole %>
 	<%= f.number_field :start_hole %>
