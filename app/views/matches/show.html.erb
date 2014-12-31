@@ -9,8 +9,8 @@
 <%= f.label :player  %>
 <%= f.collection_select(:player_id, @players, :id, :username) %> 
 
-<%#= f.label :player  %>
-<%#= f.collection_select(:player_id, @players, :id, :username) %> 
+<%= f.label :player  %>
+<%= f.collection_select(:player_id, @players, :id, :username) %> 
 
 <%#= f.autocomplete_field :player, autocomplete_player_username_challenges_path %>
 <%= f.submit %>
