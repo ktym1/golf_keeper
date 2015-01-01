@@ -43,6 +43,7 @@ gem 'cocoon'
 gem 'best_in_place'
 gem 'rails4-autocomplete'
 gem "jquery-ui-rails"
+gem "aws-sdk"
 
 group :development do
 	gem 'pry'
