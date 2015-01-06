@@ -74,10 +74,6 @@ class Round < ActiveRecord::Base
 		return diff.sum
 	end
 
-	def self.nine_hole
-		where("round_length = ?", 9)
-	end
-
 	def self.eighteen_hole
 		where("round_length = ?", 18)
 	end

@@ -2,10 +2,7 @@
 		<%= f.label :name %>
 		<%= f.text_area :name %>
 
-		<%= f.label :course_length, 9 %>
-		<%= f.radio_button(:course_length, 9)%></br>
-
-		<%= f.label :course_length, 18 %>
+		<%= f.label :course_length, "Length: 18 Holes" %>
 		<%= f.radio_button(:course_length, 18)%></br>
 
 		<%= f.fields_for :tees do |builder| %>
