@@ -13,6 +13,9 @@
 	<% end %>
 <% else %>
 	<p> This match is full!</p>
+	<% @match.challenges.each do |challenge| %>
+		<%= render partial: "rounds/round", locals: {round: challenge.round} %> 
+	<% end %>
 <% end %>
 <br>
 <p> Current players in this challenge: </p>
