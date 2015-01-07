@@ -20,11 +20,8 @@ end
 def show
 	@match = Match.find(params[:id])
 	@player = Player.find(params[:player_id])
-	@players = Player.all
-		2.times do
-			@challenge = Challenge.new
-			binding.pry
-		end
+	@players = Player.all	
+	@challenge = Challenge.new
 end
 
 	private
