@@ -1,1 +1,21 @@
-_challenge.html.erb
+<table>
+  <thead>
+    <tr>
+      <th width="150">Hole</th>
+        <% @match.course.holes.where("gender = ?", "m").each do |hole| %>
+          <th width="10"><%= hole.hole_number %></th>
+        <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @match.joined_players.each do |player| %>
+      <tr>
+        <th> <%= player.username %> </th>
+            <% end %>       
+      </tr>
+      <tr>
+          <%#= player_challenge %>
+      </tr>
+  </tbody>
+</table>

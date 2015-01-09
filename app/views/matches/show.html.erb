@@ -1,4 +1,4 @@
-<p> Your new match: </p>
+<p> Your New Match </p>
 
 <p> Course: <%= @match.course.name %></p>
 <p> Tee: <%= @match.tee.colour %> </p>
@@ -13,14 +13,11 @@
 	<% end %>
 <% else %>
 	<p> This match is full!</p>
-	<% @match.challenges.each do |challenge| %>
-		<%= render partial: "rounds/round", locals: {round: challenge.round} %> 
-	<% end %>
 <% end %>
+
 <br>
-<p> Current players in this challenge: </p>
 <% if @match.challenges.count > 0 %>
-	<%  @match.challenges.each do |challenge| %>
-		<ul> <%= challenge.player.username %> </ul>
-	<% end %>
+<%# @match.challenges.each do |challenge| %>
+		<%= render partial: "challenges/challenge" %> 
+	<%# end %>
 <% end %>
