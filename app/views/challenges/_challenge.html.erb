@@ -12,10 +12,12 @@
     <% @match.joined_players.each do |player| %>
       <tr>
         <th> <%= player.username %> </th>
-            <% end %>       
+    <% end %>           
+      <th> <%= @match.match_player %></th>    
       </tr>
       <tr>
-          <%#= player_challenge %>
+          
       </tr>
   </tbody>
 </table>
+

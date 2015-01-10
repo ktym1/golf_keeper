@@ -6,9 +6,13 @@ class Match < ActiveRecord::Base
 	has_many :joined_players, through: :challenges, source: :player
   has_many :rounds, through: :challenges	
 
-  def player_challenge 
-    c = self.challenges.where("player_id = ?", 1).first
-    c.rounds.scores
+  def match_player
+    self.joined_players.each do |player|
+      # binding.pry
+      #self.rounds.where(player_id: player.id)
+    end
   end
+ 
+  
 
 end
