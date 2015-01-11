@@ -4,15 +4,6 @@ class Match < ActiveRecord::Base
 	belongs_to :creating_player, class_name: "Player", foreign_key: :player_id
 	has_many :challenges
 	has_many :joined_players, through: :challenges, source: :player
-  has_many :rounds, through: :challenges	
-
-  def match_player
-    self.joined_players.each do |player|
-      # binding.pry
-      #self.rounds.where(player_id: player.id)
-    end
-  end
- 
-  
+  has_many :rounds, through: :challenges	  
 
 end
