@@ -45,6 +45,7 @@ gem 'rails4-autocomplete'
 gem "jquery-ui-rails"
 gem "figaro"
 gem "carrierwave"
+gem "mini_magick"
 
 group :development do
 	gem 'pry'
