@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110010544) do
+ActiveRecord::Schema.define(version: 20150113185304) do
 
   create_table "challenges", force: true do |t|
     t.integer  "round_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150110010544) do
     t.float    "handicap_index"
     t.string   "gender",          limit: 1
     t.boolean  "admin",                     default: false
+    t.string   "avatar"
   end
 
   add_index "players", ["remember_token"], name: "index_players_on_remember_token"

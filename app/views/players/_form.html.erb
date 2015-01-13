@@ -1,6 +1,6 @@
 <% button_text ||= "Save" %>
 
-<%= form_for(player) do |f| %>
+<%= form_for(player, :html => {:multipart => true}) do |f| %>
 	<%= render partial: "shared/error_messages", locals: {resource: @player} %>
 	
 	<div class="large-8 columns">	
@@ -41,13 +41,20 @@
 				</div>
 			</div>
 
-
 			<div class="field">
 				<div class="handicap_index">
 					<%= f.label :handicap_index %><br>
 					<%= f.number_field :handicap_index, in: 0..40.4, :step => 0.1 %>
 				</div>
 			</div>
+
+			<div class="field">
+					<div>
+						<%= f.label :avatar %><br>
+						<%= f.file_field :avatar %>	
+					</div>
+			</div>
+
 			<div class="actions"><%= f.submit button_text %></div>
 		</div>
 

@@ -1,4 +1,7 @@
 class Player < ActiveRecord::Base
+
+	mount_uploader :avatar, AvatarUploader
+	
 	has_many :rounds
 	has_many :courses, through: :rounds
 	has_many :created_matches, class_name: "Match"

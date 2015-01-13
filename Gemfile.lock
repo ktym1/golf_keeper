@@ -29,11 +29,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
-    aws-sdk (1.60.2)
-      aws-sdk-v1 (= 1.60.2)
-    aws-sdk-v1 (1.60.2)
-      json (~> 1.4)
-      nokogiri (>= 1.4.4)
     bcrypt (3.1.7)
     best_in_place (3.0.0)
       actionpack (>= 3.2)
@@ -45,6 +40,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     childprocess (0.5.3)
       ffi (~> 1.0, >= 1.0.11)
     cocoon (1.2.6)
@@ -187,10 +187,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk
   bcrypt (~> 3.1.7)
   best_in_place
   capybara (~> 2.1.0)
+  carrierwave
   cocoon
   coffee-rails (~> 4.0.0)
   database_cleaner (~> 1.0.1)

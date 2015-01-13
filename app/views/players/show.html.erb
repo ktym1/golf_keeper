@@ -1,9 +1,10 @@
 <h4> Account Info </h4>
-	<p> Username: <%= @player.username %></p>
+	<p> Avatar: <%= image_tag @player.avatar.url %></p> 
+  <p> Username: <%= @player.username %></p>
 	<p> Email: <%= @player.email %> </p>
 	<p> Handicap Index: <%= @player.handicap_index %> </p>
 	<p> Recent Activity: </p>
- 
+  
 <table>
   <thead>
     <tr>

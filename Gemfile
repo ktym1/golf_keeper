@@ -43,8 +43,8 @@ gem 'cocoon'
 gem 'best_in_place'
 gem 'rails4-autocomplete'
 gem "jquery-ui-rails"
-gem "aws-sdk"
 gem "figaro"
+gem "carrierwave"
 
 group :development do
 	gem 'pry'
