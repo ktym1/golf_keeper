@@ -46,6 +46,7 @@ gem "jquery-ui-rails"
 gem "figaro"
 gem "carrierwave"
 gem "mini_magick"
+gem "fog"
 
 group :development do
 	gem 'pry'
