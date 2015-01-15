@@ -10,7 +10,7 @@ class Course < ActiveRecord::Base
 	has_many :matches
 
 	validates :name, presence: true, uniqueness: true
-	validates :course_length, presence: true, inclusion: { in: [18],
+	validates :course_length, inclusion: { in: [18],
     message: "%{value} is not a valid course length" }
 
   def create_holes

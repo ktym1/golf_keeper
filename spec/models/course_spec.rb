@@ -6,11 +6,14 @@ describe Course do
     expect(FactoryGirl.build(:course)).to be_valid
   end
 
-  it "is valid with a name and course_length" do
-  	course = Course.new(
-  		name: "Glen Abbey",
-      course_length: 18)
-  	expect(course).to be_valid
+  it "is invalid without a name" do
+  	course = FactoryGirl.build(:course, name: nil)
+    expect(course).to have(1).errors_on(:name)
+  end
+
+  it "is invalid without 18 holes" do
+    course = FactoryGirl.build(:course, course_length: 0)
+    expect(course).to have(1).errors_on(:course_length)
   end
 
   it "is invalid with a duplicate name" do
