@@ -3,16 +3,16 @@ require 'spec_helper'
 describe Course do
   
   it "has a valid factory" do 
-    expect(FactoryGirl.build(:course)).to be_valid
+    expect(build(:course)).to be_valid
   end
 
   it "is invalid without a name" do
-  	course = FactoryGirl.build(:course, name: nil)
+  	course = build(:course, name: nil)
     expect(course).to have(1).errors_on(:name)
   end
 
   it "is invalid without 18 holes" do
-    course = FactoryGirl.build(:course, course_length: 0)
+    course = build(:course, course_length: 0)
     expect(course).to have(1).errors_on(:course_length)
   end
 
