@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe Course do
   
+  it "has a valid factory" do 
+    expect(FactoryGirl.build(:course)).to be_valid
+  end
+
   it "is valid with a name and course_length" do
   	course = Course.new(
   		name: "Glen Abbey",
