@@ -3,8 +3,8 @@ class Hole < ActiveRecord::Base
 	has_many :scores, dependent: :destroy
 	has_many :yardages, dependent: :destroy
 
-	validates :course_id, presence: true, numericality: {only_integer: true}
-	validates :par, presence: true, numericality: {only_integer: true}, :if => Proc.new {|h| not h.par.blank?}
+	validates :course_id, numericality: {only_integer: true}
+	validates :par, numericality: {only_integer: true}, :if => Proc.new {|h| not h.par.blank?}
 
 	validates :hole_number, inclusion: { in: 1..18, message: "Must be from 1 to 18" } 
   validates :handicap_rating, inclusion: { in: 1..18, message: "Must be from 1 to 18" }, :if => Proc.new {|h| not h.handicap_rating.blank?}
