@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150113185304) do
+ActiveRecord::Schema.define(version: 20150120004721) do
 
   create_table "challenges", force: true do |t|
     t.integer  "round_id"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20150113185304) do
     t.integer  "player_id"
     t.integer  "start_hole"
     t.integer  "tee_id"
+    t.boolean  "round_complete", default: false
   end
 
   create_table "scores", force: true do |t|
