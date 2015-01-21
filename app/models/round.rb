@@ -56,8 +56,9 @@ class Round < ActiveRecord::Base
 	end
 
 	def time_update
-		h = score_dates.first
-		h[:updated_at]
+		time_kv = score_dates.first
+		time = time_kv[:updated_at]
+		time.strftime("%d/%m/%Y") 
 	end
 
 	def self.ordered_by_last_updated_score
