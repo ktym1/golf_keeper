@@ -1,17 +1,27 @@
 
 <div class="row">
   <div class="small-12 medium-6 large-4 columns"> 
-    <div class="profile-content">
+    <div class="profile-wrapper">
       <div class="profile_pic">
-          <%= image_tag @player.avatar_url %>
+        <% if @player.avatar_url.nil? %>
+          <%= link_to "Add a Profile Image!", edit_player_path(current_user) %>
+        <% else %>
+          <%= link_to image_tag(@player.avatar_url), edit_player_path(current_user) %>
+        <% end %>
       </div>
+      <div class="profile-content">
           <p>Username: <%= @player.username %></p>
           <p>Email: <%= @player.email %></p> 
           <p>Handicap Index: <%= @player.handicap_index %></p>
+      </div>
+    
+
+      <div class="profile_links">
+        <p> <%= link_to "Rankings", player_courses_index_path %> </p>
+        <p> <%= link_to "New Round", new_player_round_path(@player) %> </p>
+        <p> <%= link_to "New Multi-Player Challenge", new_player_match_path(@player) %> </p>
+      </div>
     </div>
-    <p> <%= link_to "Rankings", player_courses_index_path %> </p>
-    <p> <%= link_to "New Round", new_player_round_path(@player) %> </p>
-    <p> <%= link_to "New Multi-Player Challenge", new_player_match_path(@player) %> </p>
   </div>
 
   <div class="small-12 medium-6 large-8 columns"> Recent Games: 
