@@ -1,54 +1,47 @@
 
-<div class="profile-content">
-  <div class="profile_pic">
-   <%= image_tag @player.avatar_url %>
+<div class="row">
+  <div class="small-12 medium-6 large-4 columns"> 
+    <div class="profile-content">
+      <div class="profile_pic">
+          <%= image_tag @player.avatar_url %>
+      </div>
+          <p>Username: <%= @player.username %></p>
+          <p>Email: <%= @player.email %></p> 
+          <p>Handicap Index: <%= @player.handicap_index %></p>
+    </div>
+    <p> <%= link_to "Rankings", player_courses_index_path %> </p>
+    <p> <%= link_to "New Round", new_player_round_path(@player) %> </p>
+    <p> <%= link_to "New Multi-Player Challenge", new_player_match_path(@player) %> </p>
   </div>
-  <ul> Username: <%= @player.username %></ul>
-  <ul> Email: <%= @player.email %> </ul>
-  <ul> Handicap Index: <%= @player.handicap_index %> </ul>
-</div>
 
-<p> Recent Activity: </p>
-  
-<table>
-  <thead>
-    <tr>
-      <th width="50">Round</th>
-      <th width="100">Course</th>
-      <th width="50"># Holes</th>
-      <th width="50">Score</th>
-      <th width="50">Par</th>
-      <th width="50">+/-</th>
-      <th width="50">Last Update</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @player.rounds.ordered_by_last_updated_score.each_with_index do |round, index| %>
-      <tr>
-        <td> <%= index + 1 %> </td>
-        <td> 
-          <%= link_to round.course.name, player_round_path(@player, round) %> 
-        </td>
-        <td> <%= round.round_length %> </td>
-        <td> <%= round.total %> </td>
-        <td> <%= round.par %> </td>
-        <td> <%= round.score_differential_sum %> </td>
-        <td> <%= round.time_update %> </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-     <th width="150"> Stats Comparison </th> 
-  </thead>
-  <tbody>
-    <tr>
-      <th width="50"><%= link_to "See How You Rank", player_courses_index_path %></th>
-    </tr>
- </tbody>
-</table>
-
-<h5> <%= link_to "Start a new round", new_player_round_path(@player) %> </h5>
-<h5> <%= link_to "Start a new challenge", new_player_match_path(@player) %> </h5>
+  <div class="small-12 medium-6 large-8 columns"> Recent Games: 
+        <table>
+          <thead>
+            <tr>
+              <th width="25">Round</th>
+              <th width="75">Course</th>
+              <th width="25"># Holes</th>
+              <th width="25">Score</th>
+              <th width="25">Par</th>
+              <th width="25">+/-</th>
+              <th width="30">Updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @player.rounds.ordered_by_last_updated_score.each_with_index do |round, index| %>
+              <tr>
+                <td> <%= index + 1 %> </td>
+                <td> 
+                  <%= link_to round.course.name, player_round_path(@player, round) %> 
+                </td>
+                <td> <%= round.round_length %> </td>
+                <td> <%= round.total %> </td>
+                <td> <%= round.par %> </td>
+                <td> <%= round.score_differential_sum %> </td>
+                <td> <%= round.time_update %> </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+</div>    
