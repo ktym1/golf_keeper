@@ -41,10 +41,8 @@
             <tbody>
               <% @player.rounds.ordered_by_last_updated_score.each_with_index do |round, index| %>
                 <tr>
-                  <td> <%= index + 1 %> </td>
-                  <td> 
-                    <%= link_to round.course.name, player_round_path(@player, round) %> 
-                  </td>
+                  <td> <%= link_to index + 1, player_round_path(@player, round) %> </td>
+                  <td> <%= round.course.name %> </td>
                   <td> <%= round.round_length %> </td>
                   <td> <%= round.total %> </td>
                   <td> <%= round.par %> </td>

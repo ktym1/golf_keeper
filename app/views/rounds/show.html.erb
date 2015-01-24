@@ -1,45 +1,43 @@
-<h4><%= @round.course.name %> scorecard </h4>
-
-<% if @round.complete? %>
-  <%= "Round completed!" %>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th width="150">Hole</th>
-        <% @round.holes.each do |hole| %>
-          <th width="10"><%= hole.hole_number %></th>
-        <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Score</td>
-        <% @round.scores.each do |score| %>
-          <td> <%= best_in_place score, :score, :path => player_round_score_path(@round.player, @round, score), :type => :input %> </td>
-        <% end %> 
-    </tr>
-    
-    <tr>
-      <td>Tee: <%= @round.tee.colour.capitalize %> </td>
-      <% @round.scores.each do |score| %>
-        <td> <%= score.get_yards %> </td>
+<div class='row'>
+  <div class='small-12 medium-6 large-4 columns'>
+    <div class="round-wrapper">
+      <h5>Scorecard</h5>
+      <p>Course: <%= @round.course.name %></p>
+      <p>Round Status: 
+      <% if @round.complete? %>
+       <%= "Completed!" %></p>
+      <% else %>
+        Incomplete</p>
       <% end %>
-    </tr>
+      <p><%= link_to "Back to Profile", player_path(current_user) %></p>
+    </div>
+  </div>
 
-    <tr>
-      <td>Handicap: <%= @round.player.gender.capitalize %></td>
-      <% @round.holes.each do |hole| %>
-        <td> <%= hole.handicap_rating %></td>
-      <% end %>
-    </tr>
-    <tr>
-      <td>Par</td>
-      <% @round.holes.each do |hole| %>
-        <td><%= hole.par %></td>
-      <% end %>
-    </tr>
-  </tbody>
-</table>
-<%= link_to "Back to Profile", player_path(current_user) %>
+  <div class="small-12 medium-6 large-8 columns">
+     <div class="score-summary">
+      <table>
+        <thead>
+          <tr>
+            <th width="25">Hole</th>
+            <th width="25">Score</th>
+            <th width="30">Tee: <%= @round.tee.colour.capitalize %></th>
+            <th width="50">Handicap: <%= @round.player.gender.capitalize %></th>
+            <th width="25">Par</th>  
+          </tr>
+        </thead>
+        <tbody>
+          <% @round.scores.each do |score| %> 
+            <tr>
+              <td><%= score.hole.hole_number %></td>
+              <td><%= best_in_place score, :score, :path => player_round_score_path(@round.player, @round, score), :type => :input %></td>
+              <td><%= score.get_yards %></td>
+              <td><%= score.hole.handicap_rating %></td>
+              <td><%= score.hole.par %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+  
