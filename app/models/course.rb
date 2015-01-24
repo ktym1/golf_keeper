@@ -24,7 +24,7 @@ class Course < ActiveRecord::Base
 
 	def score_counter
 		scores = []
-		self.rounds.each do |round|
+		self.rounds.where("round_complete = ?", true).each do |round|
 			tmp = round.total.nil? ? 0 : round.total
 			scores << tmp
 		end

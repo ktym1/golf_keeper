@@ -34,7 +34,7 @@ class Player < ActiveRecord::Base
 	#[{:course_id => 1, :round_id => 1, :score => 75}]
 	def best_scores
 		scores = []
-		self.rounds.each do |round|
+		self.rounds.where("round_complete = ?", true).each do |round|
 			score = {}
 			score[:course_id] = round.course_id
 			score[:round_id] = round.id
