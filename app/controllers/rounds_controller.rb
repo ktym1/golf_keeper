@@ -29,12 +29,23 @@ class RoundsController < ApplicationController
   end
 
   def show
+    @player = Player.find(params[:player_id])
+    @round = Round.find(params[:id])
   end
 
   def edit
   end
 
   def update
+    respond_to do |format|
+      if @round.update_attributes(round_params)
+        format.html { redirect_to(@round, :notice => 'Status was successfully updated.') }
+        format.json { respond_with_bip(@round) }
+      else
+        format.html { render :action => "edit" }
+        format.json { respond_with_bip(@round) }
+      end
+    end
   end
 
   def destroy
@@ -43,6 +54,6 @@ class RoundsController < ApplicationController
     private
 
       def round_params
-        params.require(:round).permit(:course_id, :round_length, :player_id, :start_hole, :tee_id)
+        params.require(:round).permit(:course_id, :round_length, :player_id, :start_hole, :tee_id, :round_complete)
       end
 end
