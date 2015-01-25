@@ -1,3 +1,39 @@
 // Place all the styles related to the rounds controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.round-wrapper{
+  padding:10px;
+  margin-top: 25px;
+  border:1px solid #021a40;
+
+  p {
+    font-size: 12px;
+    margin: 0.5px;
+  }
+}
+
+.score-summary{
+ padding:10px;
+ margin-top: 15px;
+
+ tr {
+  height: 15px;
+ }
+
+ th {
+  font-size: 12px;
+  text-align: center;
+ }
+
+ td {
+  font-size: 12px;
+  margin: 0px;
+  text-align: center;
+ }
+}
+
+.score-input {
+  color: #008cba;
+}
+

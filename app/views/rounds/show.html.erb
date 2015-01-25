@@ -1,15 +1,17 @@
 <div class='row'>
   <div class='small-12 medium-6 large-4 columns'>
     <div class="round-wrapper">
-      <h5>Scorecard</h5>
-      <p>Course: <%= @round.course.name %></p>
-      <p>Round Status: 
-      <% if @round.complete? %>
-       <%= "Completed!" %></p>
-      <% else %>
-        Incomplete</p>
-      <% end %>
-      <p><%= link_to "Back to Profile", player_path(current_user) %></p>
+      <div class="round-content">
+        <h5>Scorecard</h5>
+        <p>Course: <%= @round.course.name %></p>
+        <p>Round Status: 
+          <% if @round.complete? %>
+           <%= "Completed" %></p>
+          <% else %>
+            Incomplete</p>
+          <% end %>
+        <p><%= link_to "Back to Profile", player_path(current_user) %></p>
+      </div>
     </div>
   </div>
 
@@ -29,7 +31,7 @@
           <% @round.scores.each do |score| %> 
             <tr>
               <td><%= score.hole.hole_number %></td>
-              <td><%= best_in_place score, :score, :path => player_round_score_path(@round.player, @round, score), :type => :input %></td>
+              <td class="score-input"><%= best_in_place score, :score, :path => player_round_score_path(@round.player, @round, score), :type => :input %></td>
               <td><%= score.get_yards %></td>
               <td><%= score.hole.handicap_rating %></td>
               <td><%= score.hole.par %></td>
