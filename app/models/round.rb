@@ -30,13 +30,6 @@ class Round < ActiveRecord::Base
 		return par
 	end
 
-	def handicap_score
-		 handicap_total = 0
-		 scores.each do |score|
-		 	#do calculations here
-		 end
-	end
-
 	def create_scores
 		gender_acronym = self.player.gender
 		gender = gender_acronym.downcase == "m" ? "male" : "female" 
