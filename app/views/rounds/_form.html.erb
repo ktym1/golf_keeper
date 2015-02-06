@@ -1,21 +1,21 @@
-<%= form_for [player, round] do |f| %>
-	<%= f.label :course %>
-	<%= f.collection_select(:course_id, @courses, :id, :name) %>
+<div class="form-container">
+	<h5> Create a new round </h5>	
+		<%= form_for [player, round] do |f| %>
+			<%= f.label :course %>
+			<div class="form-field">
+				<%= f.collection_select(:course_id, @courses, :id, :name) %>
+			</div>
 
-	<%= f.label :tee %>
-	<%= f.collection_select(:tee_id, @tees, :id, :colour) %> 
+			<%= f.label :tee %>
+			<div class="form-field">
+				<%= f.collection_select(:tee_id, @tees, :id, :colour) %> 
+			</div>
 
-	<%= f.label :round_length, 18 %>
-	<%= f.radio_button(:round_length, 18)%></br>
-
-	<%= f.label :start_hole %>
-	<%= f.number_field :start_hole %>
-	
-	<%= f.hidden_field :player_id, :value => player.id %>
-
-
-	<%= f.submit %> 
-<% end %>
+			<%= f.hidden_field :round_length, :value => 18 %>
+			<%= f.hidden_field :player_id, :value => player.id %>
+			<%= f.submit %> 
+		<% end %>
+</div>
 
 <%#= f.label(:tee, "Tee Colour", :data => {:colour => "copper", :color => "blue"}) %>
 <!-- <select id= "course-selector"></select>
