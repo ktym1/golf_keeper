@@ -26,7 +26,7 @@
   }
 }
 
-.round-summary{
+.round-summary, .ranking-summary{
  padding:10px;
  margin-top: 15px;
 
@@ -44,4 +44,9 @@
   margin: 0px;
   text-align: center;
  }
+}
+
+#legend {
+  font-size: 9px;
+  text-align: bottom;
 }

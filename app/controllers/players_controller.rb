@@ -37,6 +37,7 @@ class PlayersController < ApplicationController
   end
 
   def show
+    @course = Course.all
   end
   
   def edit
