@@ -9,7 +9,22 @@
   	  </ul>    		
     </li>
   <% else %>
-    <li><%= link_to "Sign in", signin_path %></li>
+    <%= form_for(:session, url: sessions_path) do |f| %>  
+      <li class="has-form">
+        <div class="row collapse">
+          <div class="large-6 small-6 columns">
+            <%= f.text_field :email, :placeholder => "Email", :class => "nav-input" %>
+          </div>
+
+          <div class="large-6 small-6 columns">
+            <%= f.password_field :password, :placeholder => "Password",:class => "nav-input" %>
+          </div>
+        </div>
+      </li>
+      <li class="has-form">
+        <%= f.submit "Sign in", :class =>"button" %>
+      </li>
+    <% end %>
   <% end %>
 </ul>
 

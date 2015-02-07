@@ -10,12 +10,12 @@ class SessionsController < ApplicationController
 			redirect_back_or player
 		else
 			flash.now[:error] = 'Invalid email/password combination'
-			render 'new'
+			render '/app/views/home/index.html.erb'
 		end
 	end
 
 	def destroy
 		sign_out
-		redirect_to signin_path
+		redirect_to home_index_path
 	end
 end
