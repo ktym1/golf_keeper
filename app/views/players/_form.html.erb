@@ -1,61 +1,31 @@
 <% button_text ||= "Save" %>
 
-<%= form_for(player, :html => {:multipart => true}) do |f| %>
-	<%= render partial: "shared/error_messages", locals: {resource: @player} %>
-	
-	<div class="large-8 columns">	
-			<div class="field">
-				<div class="gender">
-					<%= f.label :gender, "Male" %>
-					<%= f.radio_button(:gender, "M") %> <br> 
-					<%= f.label :gender, "Female" %>
-					<%= f.radio_button(:gender, "F") %>
-				</div>
-			</div>
-
-			<div class="field">
-				<div class="email">
-					<%= f.label :email %><br>
-					<%= f.text_field :email %>	
-				</div>
-			</div>
-
-			<div class="field">
-				<div class="username">
-					<%= f.label :username %><br>
-					<%= f.text_field :username %>	
-				</div>
-			</div>
-
-			<div class="field">
-				<div class="password">
-					<%= f.label :password %><br>
-					<%= f.password_field :password %>
-				</div>
-			</div>
-
-			<div class="field">
-				<div class="password">
-					<%= f.label :password_confirmation %><br>
-					<%= f.password_field :password_confirmation %>
-				</div>
-			</div>
-
-			<div class="field">
-				<div class="handicap_index">
-					<%= f.label :handicap_index %><br>
-					<%= f.number_field :handicap_index, in: 0..40.4, :step => 0.1 %>
-				</div>
-			</div>
-
-			<div class="field">
-					<div>
-						<%= f.label :avatar %><br>
-						<%= f.file_field :avatar %>	
-					</div>
-			</div>
-
-			<div class="actions"><%= f.submit button_text %></div>
+<div class="form-wrapper">
+	<%= form_for(player, :html => {:multipart => true}) do |f| %>
+		<%= render partial: "shared/error_messages", locals: {resource: @player} %>
+		
+		<div class="form-gender">
+			<div class="form-label"><%= f.label :gender, "Male" %></div>
+				<%= f.radio_button(:gender, "M")%>
 		</div>
+		<div class="form-gender">
+			<div class="form-label"><%= f.label :gender, "Female" %></div>
+				<%= f.radio_button(:gender, "F") %>
+		</div>
+			
+		<div class="form-label"><%= f.label :email %></div>
+			<%= f.text_field :email, :class => "form-field" %>	
+			
+		<div class="form-label"><%= f.label :username %></div>
+			<%= f.text_field :username, :class => "form-field" %>	
 
-<% end %>
+		<div class="form-label"><%= f.label :handicap_index %></div>
+			<%= f.number_field :handicap_index, in: 0..40.4, :step => 0.1, :class => "form-field" %>
+				
+		<div class="form-label"><%= f.label :avatar %></div>
+			<%= f.file_field :avatar, :class => "form-field" %>	
+			
+		<%= f.submit button_text, :class => "form-field" %>
+
+	<% end %>
+</div>
