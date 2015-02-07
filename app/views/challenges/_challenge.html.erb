@@ -17,3 +17,23 @@
     <% end %> 
   </tbody>  
 </table>
+
+
+<!-->
+          <% round.scores.each do |score| %>
+            <td> <%= best_in_place score, :score, :path => player_round_score_path(round.player, round, score), :type => :input %>
+            </td> 
+      <% end %>
+
+
+<tbody>
+      <tr>
+        <% @match.rounds.first.scores.each do |score| %>
+          <td> <%= score.get_yards %> </td>
+        <% end %>
+        <% @match.rounds.first.holes.each do |hole| %>
+          <td><%= hole.par %></td>
+        <% end %>
+      </tr> 
+  </tbody>
+<-->

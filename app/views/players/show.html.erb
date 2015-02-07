@@ -20,43 +20,42 @@
         <p> <%= link_to "New Multi-Player Challenge", new_player_match_path(@player) %> </p>
       </div>
     </div>
-  
-    <div class='ranking-summary'>
-      <table>
-        <thead>
-            <tr>
-              <th id="legend" rowspan="2">Personal | Course</th>
-              <th width="25" colspan="2"> Best </th>
-              <th width="25" colspan="2"> Worst </th>
-              <th width="25" colspan="2"> Average </th>
-            </tr>
-
-            <tr>
-              <th width="25"> P </th>
-              <th width="25"> C </th>
-              <th width="15"> P </th>
-              <th width="15"> C </th>
-              <th width="15"> P </th>
-              <th width="15"> C </th>
-        </thead>
-        <tbody>
-          <% @course.each do |course| %>
-            <% if current_user.best_score_for_player(course.id) %>
+  <% unless @player.rounds.empty? %>
+      <div class='ranking-summary'>
+        <table>
+          <thead>
               <tr>
-                  <td> <%= course.name %> </td>
-                  <td> <%= current_user.best_score_for_player(course.id) %> </td>
-                  <td> <%= course.course_best_score %> </td>
-                  <td><%= current_user.worst_score_for_player(course.id)%> </td>
-                  <td> <%= course.course_worst_score %> </td>
-                  <td> <%= current_user.average_score_for_player(course.id) %></td>
-                  <td> <%= course.course_average_score %> </td> 
+                <th id="legend" rowspan="2">Stats: Personal | Course</th>
+                <th width="25" colspan="2"> Best </th>
+                <th width="25" colspan="2"> Worst </th>
+                <th width="25" colspan="2"> Average </th>
               </tr>
+
+              <tr>
+                <th width="25"> P </th>
+                <th width="25"> C </th>
+                <th width="15"> P </th>
+                <th width="15"> C </th>
+                <th width="15"> P </th>
+                <th width="15"> C </th>
+          </thead>
+          <tbody>
+            <% @course.each do |course| %>
+              <% if current_user.best_score_for_player(course.id) %>
+                <tr>
+                    <td> <%= course.name %> </td>
+                    <td> <%= current_user.best_score_for_player(course.id) %> </td>
+                    <td> <%= course.course_best_score %> </td>
+                    <td> <%= current_user.worst_score_for_player(course.id)%> </td>
+                    <td> <%= course.course_worst_score %> </td>
+                    <td> <%= current_user.average_score_for_player(course.id) %></td>
+                    <td> <%= course.course_average_score %> </td> 
+                </tr>
+              <% end %>
             <% end %>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    <p> </p>
+          </tbody>
+        </table>
+      </div>
   </div>
     <div class="small-12 medium-6 large-8 columns">
      <div class="round-summary">
@@ -88,4 +87,5 @@
           </table>
       </div>
     </div>
+  <% end %>
 </div>    

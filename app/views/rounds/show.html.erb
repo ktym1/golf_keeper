@@ -4,7 +4,7 @@
       <div class="round-content">
         <h5>Scorecard</h5>
         <p>Course: <%= @round.course.name %></p>
-        <p>Round Complete? <div class="status-input"><%= best_in_place [@player, @round], :round_complete, :as => :checkbox %></div></p>
+        <p>Is Your Round Complete? <div class="status-input"><%= best_in_place [@player, @round], :round_complete, :as => :checkbox %></div></p>
         <br>
         <p><%= link_to "Back to Profile", player_path(current_user) %></p>
       </div>
