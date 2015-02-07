@@ -1,3 +1,26 @@
 // Place all the styles related to the match controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.form-date {
+  width: 50%;
+}
+
+.match-wrapper{
+  padding:10px;
+  margin-top: 25px;
+  border:1px solid #021a40;
+}
+
+p {
+    font-size: 12px;
+    margin: 0.5px;
+  }
+
+.form-match{
+  margin-top: 15px;
+
+  .form-label, .form-field {
+    font-size: 12px;
+  }
+}

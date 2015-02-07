@@ -1,21 +1,30 @@
-<p> Your New Match </p>
-
-<p> Course: <%= @match.course.name %></p>
-<p> Tee: <%= @match.tee.colour %> </p>
-
-<% if @match.challenges.count < 4 %>
-	<p> Add up to 4 players to your challenge </p>
-	<%= form_for [@player, @match, @challenge] do |f| %>
-		<%= f.label :player  %>
-		<%= f.collection_select(:player_id, @players, :id, :username) %> 
-		<%#= f.autocomplete_field :player, autocomplete_player_username_challenges_path %>
-		<%= f.submit %>
-	<% end %>
-<% else %>
-	<p> This match is full!</p>
-<% end %>
-
-<br>
-<% if @match.challenges.count > 0 %>
-		<%= render partial: "challenges/challenge" %> 
-<% end %>
+<div class="row">
+  <div class="small-12 medium-6 large-4 columns"> 
+    <div class="match-wrapper">
+        <h5> Your New Match </h5>
+        <p> Course: <%= @match.course.name %></p>
+        <p> Tee: <%= @match.tee.colour %> </p>
+      
+      <div class="form-match">
+        <% if @match.challenges.count < 4 %>
+  	     <p> Add up to 4 players to your challenge </p>
+          	<%= form_for [@player, @match, @challenge] do |f| %>
+          		<div class="form-label"><%= f.label :player  %></div>
+          		<%= f.collection_select(:player_id, @players, :id, :username, {:prompt=>true}, {:class=>"form-field"}) %> 
+          		<%= f.submit %>
+          	<% end %>
+        <% else %>
+  	      <p> This match is full!</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="small-12 medium-6 large-8 columns"> 
+    <div class="match-scorecard">
+    <% if @match.challenges.count > 0 %>
+    		<%= render partial: "challenges/challenge" %> 
+    <% end %>
+    </div>
+  </div>
+</div>
