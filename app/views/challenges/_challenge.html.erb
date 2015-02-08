@@ -1,37 +1,33 @@
 <table>
   <thead>
-    
+    <th width="25">Hole</th>
+      <% @match.rounds.each do |round| %>
+    <th width="25"><%= round.player.username %>'s Score</th>
+      <% end %> 
+    <th width="25">Tee: <%= @match.rounds.first.tee.colour.capitalize %></th>  
+    <th width="25">Par</th>  
+  </thead>
+
+<tbody>
+  <% @match.rounds.each do |round| %>
+    <% round.scores.each do |score| %>
       <tr>
-        <% @match.course.holes.where("gender = ?", "m").each do |hole| %>
-        <th><%= hole.hole_number %></th>
+          <td><%= score.hole.hole_number %></td>
+          <td class="score-input"><%= best_in_place score, :score, :path => player_round_score_path(round.player, round, score), :type => :input %></td>
+          <td class="score-input"><%= best_in_place score, :score, :path => player_round_score_path(round.player, round, score), :type => :input %></td>
+          <td class="score-input"><%= best_in_place score, :score, :path => player_round_score_path(round.player, round, score), :type => :input %></td>
+          <td class="score-input"><%= best_in_place score, :score, :path => player_round_score_path(round.player, round, score), :type => :input %></td>
+          <td><%= score.get_yards %></td>
+          <td><%= score.hole.par %></td>
       </tr>
     <% end %>
-  </thead>
+  <% end %>
+</tbody>
   
-  <tbody>
-    <% @match.rounds.each do |round| %>
-      <tr>
-          <td> <%= round.player.username %> </td>
-            <% round.scores.each do |score| %>
-          <td> <%= best_in_place score, :score, :path => player_round_score_path(round.player, round, score), :type => :input %></td> 
-          <% end %>
-      </tr>   
-    <% end %> 
-  </tbody>
-  <tbody>
-      <tr>
-        <td>Tee: <%= @match.rounds.first.tee.colour.capitalize %> </td>
-          <% @match.rounds.first.scores.each do |score| %>
-        <td> <%= score.get_yards %> </td>
-        <% end %>
-      </tr>
 
-      <tr>
-        <td>Par</td>
-          <% @match.rounds.first.holes.each do |hole| %>
-        <td><%= hole.par %></td>
-          <% end %>
-      </tr> 
-  </tbody>
+      
+        
+      
+  
+
 </table>
-

@@ -4,13 +4,16 @@
         <h5> Your New Match </h5>
         <p> Course: <%= @match.course.name %></p>
         <p> Tee: <%= @match.tee.colour %> </p>
-      
+        <p> <%= link_to "Back to Profile", player_path(@player) %></p>
+
       <div class="form-match">
         <% if @match.challenges.count < 4 %>
-  	     <p> Add up to 4 players to your challenge </p>
+  	      <p> Add up to 4 players to your challenge </p>
           	<%= form_for [@player, @match, @challenge] do |f| %>
-          		<div class="form-label"><%= f.label :player  %></div>
-          		<%= f.collection_select(:player_id, @players, :id, :username, {:prompt=>true}, {:class=>"form-field"}) %> 
+          		<div class="form-label">
+                <%= f.label :player  %>
+              </div>
+          		  <%= f.collection_select(:player_id, @players, :id, :username, {:prompt=>true}, {:class=>"form-field"}) %> 
           		<%= f.submit %>
           	<% end %>
         <% else %>
@@ -21,7 +24,7 @@
   </div>
   
   <div class="small-12 medium-6 large-8 columns"> 
-    <div class="match-scorecard">
+    <div class="summary">
     <% if @match.challenges.count > 0 %>
     		<%= render partial: "challenges/challenge" %> 
     <% end %>
