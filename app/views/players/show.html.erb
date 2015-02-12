@@ -72,7 +72,7 @@
               </tr>
             </thead>
             <tbody>
-              <% @player.rounds.ordered_by_last_updated_score.each_with_index do |round, index| %>
+              <% @player.rounds.each_with_index do |round, index| %>
                 <tr>
                   <td> <%= link_to index + 1, player_round_path(@player, round) %> </td>
                   <td> <%= round.course.name %> </td>
