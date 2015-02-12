@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150206220443) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "challenges", force: true do |t|
     t.integer  "round_id"
     t.integer  "match_id"
@@ -42,9 +45,10 @@ ActiveRecord::Schema.define(version: 20150206220443) do
     t.integer  "course_id"
     t.integer  "player_id"
     t.integer  "tee_id"
-    t.date     "end_date"
+    t.time     "end_date_old"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "end_date"
   end
 
   create_table "players", force: true do |t|
@@ -60,7 +64,7 @@ ActiveRecord::Schema.define(version: 20150206220443) do
     t.string   "avatar"
   end
 
-  add_index "players", ["remember_token"], name: "index_players_on_remember_token"
+  add_index "players", ["remember_token"], name: "index_players_on_remember_token", using: :btree
 
   create_table "rounds", force: true do |t|
     t.integer  "course_id"
