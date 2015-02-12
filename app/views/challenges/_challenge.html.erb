@@ -1,33 +1,29 @@
 <table>
   <thead>
     <th width="25">Hole</th>
-      <% @match.rounds.each do |round| %>
-    <th width="25"><%= round.player.username %>'s Score</th>
+      <% @match.rounds.order("player_id asc").each do |round| %>
+        <th width="25"><%= round.player.username %>'s Score</th>
       <% end %> 
     <th width="25">Tee: <%= @match.rounds.first.tee.colour.capitalize %></th>  
     <th width="25">Par</th>  
   </thead>
 
-<tbody>
-  <% @match.rounds.each do |round| %>
-    <% round.scores.each do |score| %>
+  <tbody>
+    <% @match.course.holes.male.each do |hole| %>
       <tr>
-          <td><%= score.hole.hole_number %></td>
-          <td class="score-input"><%= best_in_place score, :score, :path => player_round_score_path(round.player, round, score), :type => :input %></td>
-          <td class="score-input"><%= best_in_place score, :score, :path => player_round_score_path(round.player, round, score), :type => :input %></td>
-          <td class="score-input"><%= best_in_place score, :score, :path => player_round_score_path(round.player, round, score), :type => :input %></td>
-          <td class="score-input"><%= best_in_place score, :score, :path => player_round_score_path(round.player, round, score), :type => :input %></td>
-          <td><%= score.get_yards %></td>
-          <td><%= score.hole.par %></td>
+        <td><%= hole.hole_number %></td>
+        <% @match.rounds.order("player_id asc").each do |round| %>
+          <td class="score-input">
+            <% score = round.scores.where("hole_id = ?", hole.id).first %>
+            <%= best_in_place score, :score, :path => player_round_score_path(round.player, round, score), :type => :input %>
+          </td>
+        <% end %>
+        <td>
+          <%# This needs to be fixed to get the yards for the hole %>
+          <%#= @match.tee.yardages.yards %>
+        </td>
+        <td><%= hole.par %></td>
       </tr>
     <% end %>
-  <% end %>
-</tbody>
-  
-
-      
-        
-      
-  
-
+  </tbody>
 </table>
