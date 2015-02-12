@@ -10,7 +10,7 @@
 
   .hero-image {
     opacity: 0.8;
-    content: url("home_hero.jpg");
+    content: asset-url("home_hero.jpg");
     width: 100%;
   }
 }
