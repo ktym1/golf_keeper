@@ -6,7 +6,6 @@ class ChallengesController < ApplicationController
 		@challenge = @match.challenges.build(challenge_params)
 		if @challenge.save
 			redirect_to player_match_path(@player, @match)
-			binding.pry
 		else
 			render player_match_path
 		end
