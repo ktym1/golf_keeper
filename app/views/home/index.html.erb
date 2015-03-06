@@ -4,16 +4,11 @@
 </div>
 
 <div class="hero-content">
-  <div class="hero-copy">
-    <h1> Golf a better way.</h1>
-    <h2> Bring your game experience to the next level.</h2>
-      <% unless signed_in?  %>
-          <h4> <%= link_to "Sign Up", new_player_path %></h4>
-      <% end %>
-  </div>
+  <h1 class="title"> Bring your game experience to the next level.</h1>
+    <% unless signed_in?  %>
+        <h4> <%= link_to "Sign Up", new_player_path %></h4>
+    <% end %>
 </div>
 
+<p class="features"> Scorecard | Statistics | Head-to-Head </p>
 
-<div class="features">       
-  <p> Scorecard | Statistics | Head-to-Head </p>
-</div>
