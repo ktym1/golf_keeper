@@ -5,28 +5,26 @@
 			<%= f.collection_select(:course_id, @courses, :id, :name, {:prompt=>true}, {:class=>"form-field", id: "course-selector"}) %>
 			
 			<div class="form-label"> <%= f.label :tee %><div>
-			<select id= "course-selector">
+
+<!-- TO-DO JS TEE MENU -->
+			<!-- <select id= "course-selector"> -->
 				<!--
 					Options for this are controlled vis JS depending on what course is selected in first menu
 					If the course id is 1 - we want to grab the options within the DIV with data-options-for-course-id = 1
 					and copy them here
 				-->
-			</select>
+			<!-- </select> -->
 
-			<div class="hide" data-options-for-course-id="1">
+			<!-- <div class="hide" data-options-for-course-id="1">
 				<option data-course-id="1" value"1"> Copper </option>
 				<option data-course-id="1" value"2"> Blue </option>
-				<option data-course-id="1" value"3"> White </option>
-				<option data-course-id="1" value"4"> Red </option>
 			</div>
 
 			<div class="hide" data-options-for-course-id="2">
-				<option data-course-id="2" value"5"> Green </option>
-				<option data-course-id="2" value"6"> Blue </option>
-				<option data-course-id="2" value"7"> White </option>
-				<option data-course-id="2" value"8"> Red </option>
-			</div>				
-			<%#= f.collection_select(:tee_id, @tees, :id, :colour, {:prompt=>true}, {:class=>"form-field"}) %> 
+				<option data-course-id="2" value"3"> Green </option>
+				<option data-course-id="2" value"4"> Blue </option>
+			 </div>-->				
+			<%= f.collection_select(:tee_id, @tees, :id, :colour, {:prompt=>true}, {:class=>"form-field"}) %> 
 			
 			<%= f.hidden_field :round_length, :value => 18 %>
 			<%= f.hidden_field :player_id, :value => player.id %>
@@ -39,8 +37,8 @@
 	$('#course-selector').on("change", function(){
 		selectedCourse = $(this).selected.attr("id");
 		$('#tee-selector').options.each{
-			// copy the options from within div placeholders into select menu 
-			// based on data attribute and what was selected in $(this) (which is the course menu)
+			copy the options from within div placeholders into select menu 
+			based on data attribute and what was selected in $(this) (which is the course menu)
 		}
 	})
 </script>
