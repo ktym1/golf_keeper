@@ -45,8 +45,8 @@ Hole.create(course_id: 1, gender: "m", hole_number: 17, par: 4, handicap_rating:
 Hole.create(course_id: 1, gender: "m", hole_number: 18, par: 5, handicap_rating: 12)
 
 #Copper Creek Tees
-Tee.create(course_id: 1, color: "Copper")
-Tee.create(course_id: 1, color: "Blue")
+Tee.create(course_id: 1, colour: "Copper")
+Tee.create(course_id: 1, colour: "Blue")
 
 #Copper Creek Copper Tee Yardages
 Yardage.create(hole_id: 1, tee_id: 1, yards: 508)
@@ -109,8 +109,8 @@ Hole.create(course_id: 2, gender: "m", hole_number: 17, par: 5, handicap_rating:
 Hole.create(course_id: 2, gender: "m", hole_number: 18, par: 4, handicap_rating: 6)
 
 #woodington lake Tees
-Tee.create(course_id: 2, color: "Green")
-Tee.create(course_id: 2, color: "Blue")
+Tee.create(course_id: 2, colour: "Green")
+Tee.create(course_id: 2, colour: "Blue")
 
 #Woodington lake Green Tee Yardages
 Yardage.create(hole_id: 19, tee_id: 3, yards: 410)
