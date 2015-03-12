@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-	# after_save :create_holes
+	after_save :create_holes
 
 	has_many :holes, dependent: :destroy
 	has_many :rounds, dependent: :destroy
