@@ -1,13 +1,18 @@
 <%# navigation styled for Zurb Foundation 5 %>
 <div class="fixed">
-  <nav class="top-bar" data-topbar>
+  <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
-    	<li class="name">
-    		<h1><%= link_to "Golf Keeper", home_index_path %></h1>
-    	</li>
+      <li class="name">	
+        <h1><%= link_to "Golf Keeper", home_index_path %></h1>
+      </li>
     </ul>
-    <div class="top-bar-section">
+    <li class="toggle-topbar menu-icon">
+      <a href="#">
+        <span> Menu </span>        
+      </a>
+    </li>
+    <section class="top-bar-section">
       <%= render 'layouts/navigation_links' %>
-    </div>
+    </section>
   </nav>
 </div>
