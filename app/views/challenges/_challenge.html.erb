@@ -12,16 +12,13 @@
     <% @match.course.holes.male.each do |hole| %>
       <tr>
         <td><%= hole.hole_number %></td>
-        <% @match.rounds.order("player_id asc").each do |round| %>
-          <td class="score-input">
-            <% score = round.scores.where("hole_id = ?", hole.id).first %>
-            <%= best_in_place score, :score, :path => player_round_score_path(round.player, round, score), :type => :input %>
-          </td>
-        <% end %>
-        <td>
-          <%# This needs to be fixed to get the yards for the hole %>
-          <%#= @match.tee.yardages.yards %>
-        </td>
+          <% @match.rounds.order("player_id asc").each do |round| %>
+            <td class="score-input">
+              <% score = round.scores.where("hole_id = ?", hole.id).first %>
+              <%= best_in_place score, :score, :path => player_round_score_path(round.player, round, score), :type => :input %>
+            </td>
+          <% end %>
+        <td><%= hole.yardages.first.yards %></td>
         <td><%= hole.par %></td>
       </tr>
     <% end %>
