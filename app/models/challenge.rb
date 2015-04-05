@@ -17,6 +17,5 @@ class Challenge < ActiveRecord::Base
 		self.update_column(:round_id, round.id)
 	end
 
-#test
 
 end
